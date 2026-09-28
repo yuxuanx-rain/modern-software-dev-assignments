@@ -1,122 +1,128 @@
 # Week 1 Write-up
 
+## Evidence convention
+
+R1–R15 are the 15 successful `POST /v1/messages?beta=true` flows in capture order. R1 is an auxiliary title-generation request with no tools; R2–R15 are the coding-agent conversation. Within a request, M0, M1, etc. are zero-based indices in `messages`, and C0, C1, etc. are zero-based content-block indices. The private `session.flows` and downloaded request-body JSON stay outside this repository.
+
 ## Part I: Capture
 
-**Setup** (enough for a reader to reproduce your capture):
-```
-claude --version:  TODO
-mitmproxy version: TODO
-proxy command:     TODO
-settings file:     TODO (path + env block)
+**Setup (reproducible on this Mac):**
+
+```text
+Claude Code:       2.1.163 (claude --version)
+mitmproxy:         11.0.2 (mitmweb --version)
+scratch repo:      a separate local Git repo, scratch-agent, beside this assignment repo
+trace test Python: 3.10.7 (python3 --version)
+capture path:      /private/tmp/cs146s-session-success.flows (outside all Git repos)
+retained copy:     ~/Downloads/cs146s-week1-session.flows (outside all Git repos)
 ```
 
-**The session.** What task, against what repo, and how many `POST /v1/messages` requests did it produce?
-> TODO
+I installed mitmproxy in an isolated Python environment and ran, from `/private/tmp`:
+
+```bash
+mitmweb --listen-host 127.0.0.1 --listen-port 58888 \
+  --web-host 127.0.0.1 --web-port 8081 --no-web-open-browser \
+  --mode reverse:https://api.anthropic.com \
+  -w /private/tmp/cs146s-session-success.flows
+```
+
+The extra `--no-web-open-browser` only suppressed automatic browser launch. I later opened `http://127.0.0.1:8081`, selected a successful `POST /v1/messages` flow, and downloaded its request body as valid JSON to `~/Downloads/cs146s-week1-request-r2.json`. Before the run, `scratch-agent/.claude/settings.json` contained:
+
+```json
+{"env":{"ANTHROPIC_BASE_URL":"http://127.0.0.1:58888","ENABLE_TOOL_SEARCH":"true"}}
+```
+
+The scratch repo's baseline commit contained `ledger.py`, `report.py`, and `tests/test_refunds.py`. `normalize_transaction` accepted only `kind == "sale"` and raised `ValueError("unsupported transaction kind")` otherwise. `daily_net_revenue` simply added normalized amounts. The two prewritten tests required a positive-input refund of `4.50` to retain its kind and to reduce a same-day sale of `12.00` to net revenue of `7.50`. Thus `python3 -m unittest discover -s tests -v` failed on both tests before Claude edited anything.
+
+I launched a fresh Claude Code session in that repo and asked it to create and update an explicit task list, run that exact test command before editing, implement refund support in `ledger.py` and `report.py` while keeping `Decimal` precision and rejecting nonpositive amounts, then rerun the full test command. The prompt also limited work to the scratch repo and prohibited reading credentials or outside files (R2 M0/C4). The proxy recorded **15 successful POSTs**, including the auxiliary title request. Afterward I stopped mitmweb and deleted the project-level settings file. I retained a private local copy of the flow, which can be reopened with `mitmweb -r ~/Downloads/cs146s-week1-session.flows`.
 
 | Requirement | Evidence |
 |---|---|
-| Touched ≥ 2 files | TODO |
-| Failed at least once | TODO |
-| Long enough to plan | TODO |
-| Your own repo | TODO |
+| Touched at least two files | `Edit` changed `ledger.py` at R10 M15/C0 and `report.py` at R12 M19/C0. |
+| Failed at least once | Baseline `Bash` test call at R6 M7/C2 returned exit code 1 and two errors at R6 M8/C1; the rerun passed at R14 M24/C0. |
+| Long enough to plan | `ToolSearch` loaded `TaskCreate` at R5 M5/C2; R6 M7/C1 created task 1, and R8 M11/C2–C4 created the remaining tasks. |
+| My own repo | `scratch-agent` was initialized as a separate local Git repo; the assignment repo was only used for this write-up. R2 `system[2]` identifies the scratch repo as the working directory and says it is a Git repository. |
 
-**What you redacted** from the excerpts quoted below, and why:
-> TODO
-
+**Sanitization.** The excerpts below omit HTTP headers entirely. I do not quote the `userEmail` reminder, account identifiers, or absolute home-directory paths. Where a path would be needed, I use `[REDACTED: local path]`; the quoted error excerpt below is a contiguous part of the test result that contains no private path. Neither the raw flow nor the downloaded request body is in this Git repo.
 
 ## Part II: System Prompt Annotation
 
-**a. Structure.** Major sections in order, one line each on what it does, and why this order.
-> TODO
+**a. Structure.** R2 `system` is a three-block array; there are no `role: "system"` messages in R2–R15. `system[0]` carries a Claude Code billing/version marker, `system[1]` identifies the SDK agent, and `system[2]` is the operative prompt. Its major sections are in this order:
 
-**b. Tone and verbosity.** Quote the controlling instructions, then say what failure mode they defend against.
-```
-TODO
-```
-> TODO
+| Section of `system[2]` | Behavior bought; failure prevented |
+|---|---|
+| Opening safety and URL rules | Sets authorization boundaries before any task-specific instruction; limits harmful assistance and invented links. |
+| `System` | Explains output visibility, permission prompts, hooks, tool results, and compression; prevents the agent from treating tool output as ordinary trusted instructions or repeating a denied action. |
+| `Doing tasks` | Converts vague requests into repository work while limiting unnecessary features and validation; prevents an answer-only response to a code-change request and scope creep. |
+| `Executing actions with care` | Gates destructive and shared-state actions by reversibility and authorization; prevents losing user work or publishing without consent. |
+| `Using your tools` | Prefers dedicated tools, requires task tracking, and distinguishes independent from dependent calls; prevents indiscriminate shell edits and stale plans. |
+| `Tone and style` and `Text output` | Keeps user-visible updates short and gives file locations; prevents silent work, verbose narration, and summaries unsupported by tool results. |
+| `Session-specific guidance` | Chooses when specialized agents or skills fit; prevents excessive delegation for a small known-file task. |
+| `auto memory` | Separates durable user/project facts from ephemeral task state; prevents storing transient code details as personal memory. |
+| `Environment` and `Context management` | Supplies working directory, Git snapshot, OS, shell, model, and compaction behavior; prevents actions in the wrong repo and premature stopping near context limits. |
 
-**c. When not to act.** Quote the destructive-operation gates, scope limits, or refusal conditions, and what each buys.
-```
-TODO
-```
-> TODO
+The order moves from general limits to work method, then to the concrete machine and repository. That lets later environment facts be interpreted under the earlier safety and scope rules.
 
-**d. Environment context.** What the agent is told about machine/repo/session, and where it lives in the request (`system` field or a `role: "system"` message).
-> TODO
+**b. Tone and verbosity.** R2 `system[2]`, `Tone and style` says “Your responses should be short and concise.” Its `Text output` section says “End-of-turn summary: one or two sentences.” These short controls defend against long process narration crowding out the result. The same section asks for an update before the first tool call and at key moments, defending against an agent that works invisibly.
 
-**e. `<system-reminder>`.** Where they appear (cite an example), two distinct purposes you can evidence, and why they are injected mid-conversation rather than stated once.
-```
-TODO
-```
-> TODO
+**c. When not to act.** R2 `system[2]` says “Don't implement until the user agrees” for exploratory proposals, limiting premature edits. Its `Executing actions with care` section says to “check with the user before proceeding” on destructive, hard-to-reverse, or externally visible actions such as deleting branches or pushing code; this protects local work and shared state. The opening safety rule refuses malicious destructive or evasion requests, while the `Doing tasks` section restricts extra features and speculative validation. These are distinct gates: user-intent ambiguity, action impact, harmful intent, and scope.
 
+**d. Environment context.** R2 `system[2]` → `Environment` gives the scratch working directory, Git-repository status, macOS/Darwin, zsh, and model ID. Its final Git snapshot gives branch `main`, clean status, and recent commits, while explicitly warning that the snapshot will not update during the conversation. The user prompt and capability notices live in R2 M0, not in a `role: "system"` message. This split gives the agent machine facts once while carrying changing session information in the message history.
+
+**e. `<system-reminder>`.** Actual reminder tags occur in `messages`, not as standalone `system` blocks: R2 M0/C0 lists 20 deferred tool names and explains `ToolSearch`; R2 M0/C3 carries date/account context (not quoted here). A later reminder is embedded in the `Read` tool result at R5 M4/C2: it adds 50 deferred MCP tool names as servers finish connecting. Thus the tags both provide capability discovery and inject session context. Putting them in messages or tool results lets the runtime update availability mid-conversation, rather than freezing a tool list at session start. The system block itself explains that reminders may appear in messages or tool results, but the observed tags in this capture are in those two message locations.
 
 ## Part III: Tool Design Annotation
 
-**Inventory.** Did the set change across requests? If so, what triggered it?
+**Inventory.** Counts are unique names across the directly supplied `tools` array and the deferred names listed in reminders. “Deferred MCP” means named and searchable, with no schema loaded into the direct `tools` array. The 50 newly announced MCP names were not used in this coding task.
 
-| Built-in | MCP | Deferred | **Total** | Changed mid-session? |
-|---|---|---|---|---|
-| TODO | TODO | TODO | **TODO** | TODO |
+| Request | Direct built-in | Direct MCP | Deferred built-in | Deferred MCP | **Unique total** |
+|---|---:|---:|---:|---:|---:|
+| R2, first coding request | 11 | 0 | 20 | 0 | **31** |
+| R5, after `TaskCreate` loads and MCP announcement | 12 | 0 | 19 | 50 | **81** |
+| R7–R15, after `TaskUpdate` loads | 13 | 0 | 18 | 50 | **81** |
 
-**Two tools.** Pick tools that differ from each other.
+R1 is an auxiliary title-generation request with **0 tools**, not the first coding request. R5 M5/C2 requests `select:TaskCreate`; R5 M6 reports it loaded and R5's direct schema list has grown to 12. R7 M9/C2 requests `TaskUpdate`; from R7 onward the list contains 13 direct schemas. Separately, the reminder appended to the R5 M4/C2 `Read` result announces 50 MCP-provided searchable names as connections complete; this is availability, not evidence that Claude invoked them.
 
-| | Tool 1 | Tool 2 |
+**Two deliberately different tools:** `Edit` changes a file; `TaskCreate` creates orchestration state. Both schemas set `additionalProperties: false`.
+
+| | `Edit` (R2 `tools`) | `TaskCreate` (R5 `tools`) |
 |---|---|---|
-| Name | TODO | TODO |
-| Key schema fields | TODO | TODO |
-| Required vs. optional vs. not exposed, and why | TODO | TODO |
-| Description is defending against… (quote + the wrong behavior) | TODO | TODO |
-| Deliberately does *not* do… and what that implies | TODO | TODO |
-
-Why these two?
-> TODO
-
+| Relevant schema | `{file_path: string, old_string: string, new_string: string, replace_all?: boolean=false}` | `{subject: string, description: string, activeForm?: string, metadata?: object}` |
+| Required, optional, and why | Exact target path and before/after strings are required so a replacement is reviewable. `replace_all` is optional and defaults false to avoid broad changes. | `subject` and `description` are required to make a task actionable. Spinner text and metadata are optional presentation/extension fields. |
+| Description's defensive detail | “The edit will FAIL if `old_string` is not unique” and a prior read is required. This anticipates ambiguous replacements and hallucinated file contents. | “Skip using this tool when” the task is trivial. This anticipates agents creating busywork task lists merely because the tool exists. |
+| Deliberately does not do | It does not search, choose the target, run tests, or commit. The agent must use `Read`, deliberate matching, then another tool to verify. | It does not implement work or advance status by itself; creation starts `pending`. `TaskUpdate` and actual file/test tools are separate responsibilities. |
 
 ## Part IV: Behavioral Analysis
 
-**Every answer must be labeled `[OBSERVED]` or `[INFERRED]` and cite its evidence. Unlabeled answers earn no credit.**
+**a. Error recovery — [OBSERVED].** R6 M7/C2 calls `Bash` to run the baseline suite. R6 M8/C1 returns, verbatim in part:
 
-**a. Error recovery**: `TODO: label` · evidence: `TODO`
-
-What the agent saw, verbatim:
+```text
+Exit code 1
+test_normalizes_refund (test_refunds.RefundTests) ... ERROR
+test_refund_reduces_daily_revenue (test_refunds.RefundTests) ... ERROR
 ```
-TODO
-```
-What it tried next, and turns to recover:
-> TODO
 
-**b. Planning**: `TODO: label` · evidence: `TODO`
-> TODO
+The same tool result contains `ValueError: unsupported transaction kind` twice. At R7 M9/C1 the agent identifies the cause as rejecting `kind == "refund"`; at R8 M11 it creates tasks for the two code changes and verification. It then edits `ledger.py` (R10 M15/C0) and `report.py` (R12 M19/C0), reruns the suite (R14 M23/C0), and sees both tests `ok` (R14 M24/C0). There are **eight subsequent assistant tool-use messages**, M9 through M23, from the failed result to the passing result; M25 closes the final task.
 
-**c. Plans and task state**: `TODO: label` · evidence: `TODO` \
-How does one get created and advanced? What does the model see about task state each turn, and where does it live in the request:
-> TODO
+**b. Planning — [OBSERVED].** It is a combination of explicit instruction and tool support. R2 M0/C4 asks for a plan; R2 `system[2]` → `Using your tools` directs use of `TaskCreate`. Claude says it will plan at R5 M5/C1, loads `TaskCreate` at R5 M5/C2, creates task 1 at R6 M7/C1, and creates tasks 2–4 at R8 M11/C2–C4. The trace does not establish that planning would have happened without either prompt instruction.
 
-**d. Subagents**: `TODO: label` · evidence: `TODO` \
-When the agent delegates, what the subagent is told, and what comes back:
-> TODO
+**c. Plans and task state — [OBSERVED].** `TaskCreate` returns task IDs and pending state (R6 M8/C0; R8 M12/C1–C3). `TaskUpdate` marks task 1 complete at R8 M11/C1, moves task 2 to `in_progress` at R9 M13/C0, and subsequently advances tasks 2–4 through R15 M25/C0. The model sees those updates as `tool_result` content in the next request's `messages`; for example R10 M14/C0 reports task 2 in progress. No complete task-list snapshot appears on every turn in this trace, so I cannot claim one was supplied.
 
-**e. Context management**: `TODO: label` · evidence: `TODO` \
-What changed in the payloads as the session grew:
-> TODO
+**d. Subagents — [INFERRED].** No `Agent` call appears in R2–R15. R2's `Agent` schema requires `description` and `prompt`, optionally accepts `subagent_type`, `model`, `run_in_background`, and `isolation`; R2 M0/C1 lists available agent types. Its description recommends delegation for open-ended work across a codebase and says the agent returns one result message to the parent, which then checks edits and relays a summary. This small, known-file task used direct `Read`/`Edit` calls, so no actual subagent input or output can be reported.
 
+**e. Context management — [OBSERVED].** The main request grows from one `messages` entry at R2 to 27 at R15. Earlier assistant `tool_use` blocks and user `tool_result` blocks are retained: the R6 failure at M8 is still present in R15. The main `system[2]` text remains the same length (26,771 characters); the small billing marker changes, and the direct tool list grows 11 → 12 → 13 as schemas load. R2 includes `context_management` settings and the system prompt describes eventual summarization, but no summary replacing earlier turns is visible in this short trace. I therefore observed accumulation and tool-schema loading, not an actual compaction event.
 
 ## Part V: Reflection
 
-**Two decisions you would copy**, and the problem each solves:
-1. TODO
-2. TODO
+**Two decisions I would copy.** First, the explicit `TaskCreate`/`TaskUpdate` lifecycle made the failure, both edits, and verification separate visible steps. It reduced the chance of declaring success immediately after a patch. Second, `Edit` requires an exact match after a read and rejects an ambiguous `old_string`; that narrows the blast radius of automated changes.
 
-**One you would make differently** (engage with why it might be there):
-> TODO
+**One decision I would change.** The agent's first `find` searched every file under the scratch root (R3 M1/C2), including `.git` and the proxy settings path. A broad scan helps orient an agent in an unfamiliar repository, but here `git ls-files` or a scoped file listing would have supplied the needed map with less noise and less chance of pulling private configuration into context. The agent did not read a credential in this trace.
 
-**One thing the trace changed** about how you will steer a coding agent:
-> TODO
+**Day-to-day steering change.** I will give coding agents a reproducible failing command, a narrow file scope, and explicit pass criteria up front. In this session that made the error-recovery sequence inspectable: initial failure, targeted edits, and the same test command passing afterward.
 
+## Submission checks
 
-## Submission
-1. `Command (⌘) + F` for `TODO`. No results means you're done.
-2. Confirm no credentials or `x-api-key` headers made it into your quoted excerpts.
-3. Push all changes to your remote repository and submit via Gradescope.
-4. Don't forget to remove `ANTHROPIC_BASE_URL` from your repo's `.claude/settings.json`!
+- All template placeholders filled.
+- Quoted excerpts reviewed for credentials, authorization headers, account identifiers, and local paths.
+- Raw captures and downloaded request JSON remain outside the assignment Git repository.
+- The temporary `ANTHROPIC_BASE_URL` project setting was removed after capture.
