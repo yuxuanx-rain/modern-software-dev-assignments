@@ -89,7 +89,7 @@ R1 is an auxiliary title-generation request with **0 tools**, not the first codi
 |---|---|---|
 | Relevant schema | `{file_path: string, old_string: string, new_string: string, replace_all?: boolean=false}` | `{subject: string, description: string, activeForm?: string, metadata?: object}` |
 | Required, optional, and why | Exact target path and before/after strings are required so a replacement is reviewable. `replace_all` is optional and defaults false to avoid broad changes. | `subject` and `description` are required to make a task actionable. Spinner text and metadata are optional presentation/extension fields. |
-| Description's defensive detail | “The edit will FAIL if `old_string` is not unique” and a prior read is required. This anticipates ambiguous replacements and hallucinated file contents. | “Skip using this tool when” the task is trivial. This anticipates agents creating busywork task lists merely because the tool exists. |
+| Description's defensive detail | “The edit will FAIL if `old_string` is not unique” and a prior read is required. This anticipates ambiguous replacements and hallucinated file contents. | “NOTE that you should not use this tool if there is only one trivial task to do.” This anticipates agents creating busywork task lists merely because the tool exists. |
 | Deliberately does not do | It does not search, choose the target, run tests, or commit. The agent must use `Read`, deliberate matching, then another tool to verify. | It does not implement work or advance status by itself; creation starts `pending`. `TaskUpdate` and actual file/test tools are separate responsibilities. |
 
 ## Part IV: Behavioral Analysis
