@@ -17,7 +17,7 @@ capture path:      /private/tmp/cs146s-session-success.flows (outside all Git re
 retained copy:     ~/Downloads/cs146s-week1-session.flows (outside all Git repos)
 ```
 
-I installed mitmproxy in an isolated Python environment and ran, from `/private/tmp`:
+I installed mitmproxy in the isolated `/private/tmp/cs146s-mitm-venv` environment. Its `mitmweb` binary was `/private/tmp/cs146s-mitm-venv/bin/mitmweb`; with that environment's `bin` directory on `PATH`, I ran the following from `/private/tmp`:
 
 ```bash
 mitmweb --listen-host 127.0.0.1 --listen-port 58888 \
@@ -43,29 +43,29 @@ I launched a fresh Claude Code session in that repo and asked it to create and u
 | Long enough to plan | `ToolSearch` loaded `TaskCreate` at R5 M5/C2; R6 M7/C1 created task 1, and R8 M11/C2–C4 created the remaining tasks. |
 | My own repo | `scratch-agent` was initialized as a separate local Git repo; the assignment repo was only used for this write-up. R2 `system[2]` identifies the scratch repo as the working directory and says it is a Git repository. |
 
-**Sanitization.** The excerpts below omit HTTP headers entirely. I do not quote the `userEmail` reminder, account identifiers, or absolute home-directory paths. Where a path would be needed, I use `[REDACTED: local path]`; the quoted error excerpt below is a contiguous part of the test result that contains no private path. Neither the raw flow nor the downloaded request body is in this Git repo.
+**Sanitization.** The excerpts below omit HTTP headers entirely. I do not quote the `userEmail` reminder, account identifiers, or absolute home-directory paths. The error quote is a contiguous, path-free span of the test result; I omitted the surrounding stack trace because it contains local paths. If quoting a path were necessary, I would replace it visibly with `[REDACTED: local path]`. Neither the raw flow nor the downloaded request body is in this Git repo.
 
 ## Part II: System Prompt Annotation
 
-**a. Structure.** R2 `system` is a three-block array; there are no `role: "system"` messages in R2–R15. `system[0]` carries a Claude Code billing/version marker, `system[1]` identifies the SDK agent, and `system[2]` is the operative prompt. Its major sections are in this order:
+**a. Structure.** R2 `system` is a three-block array; there are no `role: "system"` messages in R2–R15. `system[0]` carries a Claude Code billing/version marker, `system[1]` identifies the SDK agent, and `system[2]` is the operative prompt. Its major sections are in this order. The placement explanations are my reading of the design, not observed proof that each rule changed Claude's behavior:
 
-| Section of `system[2]` | Behavior bought; failure prevented |
-|---|---|
-| Opening safety and URL rules | Sets authorization boundaries before any task-specific instruction; limits harmful assistance and invented links. |
-| `System` | Explains output visibility, permission prompts, hooks, tool results, and compression; prevents the agent from treating tool output as ordinary trusted instructions or repeating a denied action. |
-| `Doing tasks` | Converts vague requests into repository work while limiting unnecessary features and validation; prevents an answer-only response to a code-change request and scope creep. |
-| `Executing actions with care` | Gates destructive and shared-state actions by reversibility and authorization; prevents losing user work or publishing without consent. |
-| `Using your tools` | Prefers dedicated tools, requires task tracking, and distinguishes independent from dependent calls; prevents indiscriminate shell edits and stale plans. |
-| `Tone and style` and `Text output` | Keeps user-visible updates short and gives file locations; prevents silent work, verbose narration, and summaries unsupported by tool results. |
-| `Session-specific guidance` | Chooses when specialized agents or skills fit; prevents excessive delegation for a small known-file task. |
-| `auto memory` | Separates durable user/project facts from ephemeral task state; prevents storing transient code details as personal memory. |
-| `Environment` and `Context management` | Supplies working directory, Git snapshot, OS, shell, model, and compaction behavior; prevents actions in the wrong repo and premature stopping near context limits. |
+| Section of `system[2]` | Behavior bought; failure prevented | Why this placement helps |
+|---|---|---|
+| Opening safety and URL rules | Sets authorization boundaries; limits harmful assistance and invented links. | Puts global limits before repository instructions can be interpreted as permission. |
+| `System` | Explains output visibility, permission prompts, hooks, tool results, and compression; guards against treating tool output as trusted instructions or repeating a denied action. | Defines the runtime's rules before telling the agent how to work. |
+| `Doing tasks` | Converts requests into repository work while limiting unnecessary features and validation; guards against answer-only responses and scope creep. | Establishes the normal work pattern before the narrower action gates. |
+| `Executing actions with care` | Gates destructive and shared-state actions by reversibility and authorization; guards against lost work or unwanted publication. | Qualifies the preceding bias to act before tool execution guidance begins. |
+| `Using your tools` | Prefers dedicated tools, task tracking, and ordered dependent calls; guards against indiscriminate shell edits and stale plans. | Turns the work policy into concrete tool choices after the permission boundaries are set. |
+| `Tone and style` and `Text output` | Keeps updates short and gives file locations; guards against silent work, verbose narration, and unsupported summaries. | Applies to how the already defined work and tool results are reported. |
+| `Session-specific guidance` | Chooses when agents or skills fit; guards against excess delegation for a small known-file task. | Refines the general tool rules with session-specific options. |
+| `auto memory` | Separates durable facts from ephemeral task state; guards against storing transient code details as personal memory. | Adds persistence rules after ordinary task behavior. |
+| `Environment` and `Context management` | Supplies working directory, Git snapshot, OS, shell, model, and compaction behavior; guards against wrong-repo actions and premature stopping. | Places variable machine and session facts at the end, where they can be read under the earlier rules. |
 
 The order moves from general limits to work method, then to the concrete machine and repository. That lets later environment facts be interpreted under the earlier safety and scope rules.
 
-**b. Tone and verbosity.** R2 `system[2]`, `Tone and style` says “Your responses should be short and concise.” Its `Text output` section says “End-of-turn summary: one or two sentences.” These short controls defend against long process narration crowding out the result. The same section asks for an update before the first tool call and at key moments, defending against an agent that works invisibly.
+**b. Tone and verbosity.** R2 `system[2]`, `Tone and style` says “Your responses should be short and concise.” Its `Text output` section says “End-of-turn summary: one or two sentences.” These short controls defend against long process narration crowding out the result. The same section asks for an update before the first tool call and at key moments, defending against an agent that works invisibly. Spending prompt tokens on this is plausible because response length and update timing recur on every task, not just this refund exercise.
 
-**c. When not to act.** R2 `system[2]` says “Don't implement until the user agrees” for exploratory proposals, limiting premature edits. Its `Executing actions with care` section says to “check with the user before proceeding” on destructive, hard-to-reverse, or externally visible actions such as deleting branches or pushing code; this protects local work and shared state. The opening safety rule refuses malicious destructive or evasion requests, while the `Doing tasks` section restricts extra features and speculative validation. These are distinct gates: user-intent ambiguity, action impact, harmful intent, and scope.
+**c. When not to act.** R2 `system[2]` says “Don't implement until the user agrees” for exploratory proposals, limiting premature edits. Its `Executing actions with care` section says to “check with the user before proceeding” on hard-to-reverse or shared-system actions; this protects local work and shared state. The opening rule says “Refuse requests for destructive techniques, DoS attacks, mass targeting, supply chain compromise, or detection evasion for malicious purposes.” That is a separate refusal gate, rather than a request to ask permission. The `Doing tasks` section restricts extra features and speculative validation. Together these address user-intent ambiguity, action impact, harmful intent, and scope.
 
 **d. Environment context.** R2 `system[2]` → `Environment` gives the scratch working directory, Git-repository status, macOS/Darwin, zsh, and model ID. Its final Git snapshot gives branch `main`, clean status, and recent commits, while explicitly warning that the snapshot will not update during the conversation. The user prompt and capability notices live in R2 M0, not in a `role: "system"` message. This split gives the agent machine facts once while carrying changing session information in the message history.
 
@@ -92,6 +92,8 @@ R1 is an auxiliary title-generation request with **0 tools**, not the first codi
 | Description's defensive detail | “The edit will FAIL if `old_string` is not unique” and a prior read is required. This anticipates ambiguous replacements and hallucinated file contents. | “NOTE that you should not use this tool if there is only one trivial task to do.” This anticipates agents creating busywork task lists merely because the tool exists. |
 | Deliberately does not do | It does not search, choose the target, run tests, or commit. The agent must use `Read`, deliberate matching, then another tool to verify. | It does not implement work or advance status by itself; creation starts `pending`. `TaskUpdate` and actual file/test tools are separate responsibilities. |
 
+I chose these two because `Edit` constrains a risky file mutation through exact matching, while `TaskCreate` constrains workflow overhead through its usage guidance. Their schemas show different boundaries: one acts on code, and the other records work for later tools to advance.
+
 ## Part IV: Behavioral Analysis
 
 **a. Error recovery — [OBSERVED].** R6 M7/C2 calls `Bash` to run the baseline suite. R6 M8/C1 returns, verbatim in part:
@@ -102,11 +104,11 @@ test_normalizes_refund (test_refunds.RefundTests) ... ERROR
 test_refund_reduces_daily_revenue (test_refunds.RefundTests) ... ERROR
 ```
 
-The same tool result contains `ValueError: unsupported transaction kind` twice. At R7 M9/C1 the agent identifies the cause as rejecting `kind == "refund"`; at R8 M11 it creates tasks for the two code changes and verification. It then edits `ledger.py` (R10 M15/C0) and `report.py` (R12 M19/C0), reruns the suite (R14 M23/C0), and sees both tests `ok` (R14 M24/C0). There are **eight subsequent assistant tool-use messages**, M9 through M23, from the failed result to the passing result; M25 closes the final task.
+The same tool result contains `ValueError: unsupported transaction kind` twice. At R7 M9/C1 the agent identifies the cause as rejecting `kind == "refund"`; at R8 M11 it creates tasks for the two code changes and verification. It then edits `ledger.py` (R10 M15/C0) and `report.py` (R12 M19/C0), reruns the suite (R14 M23/C0), and sees both tests `ok` (R14 M24/C0). Recovery takes **eight subsequent assistant turns**—M9, M11, M13, M15, M17, M19, M21, and M23—from the failed result to the passing result; M25 closes the final task afterward.
 
 **b. Planning — [OBSERVED].** It is a combination of explicit instruction and tool support. R2 M0/C4 asks for a plan; R2 `system[2]` → `Using your tools` directs use of `TaskCreate`. Claude says it will plan at R5 M5/C1, loads `TaskCreate` at R5 M5/C2, creates task 1 at R6 M7/C1, and creates tasks 2–4 at R8 M11/C2–C4. The trace does not establish that planning would have happened without either prompt instruction.
 
-**c. Plans and task state — [OBSERVED].** `TaskCreate` returns task IDs and pending state (R6 M8/C0; R8 M12/C1–C3). `TaskUpdate` marks task 1 complete at R8 M11/C1, moves task 2 to `in_progress` at R9 M13/C0, and subsequently advances tasks 2–4 through R15 M25/C0. The model sees those updates as `tool_result` content in the next request's `messages`; for example R10 M14/C0 reports task 2 in progress. No complete task-list snapshot appears on every turn in this trace, so I cannot claim one was supplied.
+**c. Plans and task state — [OBSERVED].** `TaskCreate`'s R5 tool description says new tasks start `pending`; its results confirm creation and give IDs, but do not echo the status (R6 M8/C0; R8 M12/C1–C3). `TaskUpdate` calls set task 1 to `completed` at R8 M11/C1, task 2 to `in_progress` at R9 M13/C0, and advance tasks 2–4 through R15 M25/C0. The next request's `messages` retain each assistant `tool_use` with its requested status and a `tool_result` acknowledgment; R10 M13/C0 and M14/C0 show that pair for task 2. The acknowledgment says only that the status was updated, not what the new status is. No complete task-list snapshot appears on every turn in this trace, so I cannot claim one was supplied.
 
 **d. Subagents — [INFERRED].** No `Agent` call appears in R2–R15. R2's `Agent` schema requires `description` and `prompt`, optionally accepts `subagent_type`, `model`, `run_in_background`, and `isolation`; R2 M0/C1 lists available agent types. Its description recommends delegation for open-ended work across a codebase and says the agent returns one result message to the parent, which then checks edits and relays a summary. This small, known-file task used direct `Read`/`Edit` calls, so no actual subagent input or output can be reported.
 
