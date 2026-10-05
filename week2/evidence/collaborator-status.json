@@ -1,0 +1,12 @@
+{
+  "checked_date": "2026-10-04",
+  "source": "Authenticated GitHub repository Settings / Collaborators page",
+  "repository": "https://github.com/yuxuanx-rain/modern-software-dev-assignments",
+  "visibility": "public",
+  "collaborators": [
+    {"username": "isaackann", "status": "accepted_collaborator"},
+    {"username": "mihail911", "status": "invitation_pending_recipient_acceptance"},
+    {"username": "vdaita", "status": "invitation_pending_recipient_acceptance"}
+  ],
+  "note": "All three required users are represented. Two invitations still require the recipients to accept; this does not claim all three have accepted. No new invitations or permission changes were performed during this audit."
+}
