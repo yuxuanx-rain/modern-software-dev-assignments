@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "drive-docs": {
+      "command": "/ABSOLUTE/PATH/TO/week2/.venv/bin/python",
+      "args": ["/ABSOLUTE/PATH/TO/week2/server.py"],
+      "env": {
+        "GOOGLE_ENV_FILE": "/ABSOLUTE/PRIVATE/PATH/credentials.env",
+        "GOOGLE_TOKEN_PATH": "/ABSOLUTE/PRIVATE/PATH/token.json",
+        "GOOGLE_WRITE_DOCUMENT_IDS": "EXPLICITLY_APPROVED_TEST_DOC_ID"
+      }
+    }
+  }
+}

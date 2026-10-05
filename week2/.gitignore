@@ -1,0 +1,9 @@
+.venv/
+.env
+.mcp.json
+.private/
+token*.json
+client_secret*.json
+__pycache__/
+.pytest_cache/
+*.local.json
