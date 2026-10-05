@@ -1,0 +1,13 @@
+{
+  "stanford_account_verified": true,
+  "authorization_code_exchange": true,
+  "refresh_token_received": true,
+  "shared_with_me_query_succeeded": true,
+  "shared_with_me_sample_count": 1,
+  "test_doc_write_read_verified": true,
+  "silent_refresh_succeeded": true,
+  "test_document_url": "https://docs.google.com/document/d/171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM/edit",
+  "shared_drives_query_succeeded": false,
+  "shared_drives_http_status": 403,
+  "shared_drives_scope_requirement": "drive.readonly or drive; not authorized or added"
+}

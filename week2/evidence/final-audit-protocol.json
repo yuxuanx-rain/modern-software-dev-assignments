@@ -1,0 +1,280 @@
+{
+  "date": "2026-10-04",
+  "client": "FastMCP stdio client",
+  "scope": "approved test document only",
+  "real_write_performed": false,
+  "preview_left_document_unchanged": true,
+  "events": [
+    {
+      "tools": [
+        {
+          "name": "search_documents",
+          "input_schema": {
+            "properties": {
+              "keyword": {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              "scope": {
+                "default": "accessible",
+                "enum": [
+                  "accessible",
+                  "shared_with_me",
+                  "owned_by_me"
+                ],
+                "type": "string"
+              },
+              "folder_id": {
+                "anyOf": [
+                  {
+                    "maxLength": 200,
+                    "minLength": 1,
+                    "pattern": "^[A-Za-z0-9_-]+$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "page_size": {
+                "default": 10,
+                "maximum": 50,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "page_token": {
+                "anyOf": [
+                  {
+                    "maxLength": 2000,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              }
+            },
+            "required": [
+              "keyword"
+            ],
+            "type": "object",
+            "additionalProperties": false
+          },
+          "annotations": {
+            "title": null,
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": null,
+            "openWorldHint": null
+          }
+        },
+        {
+          "name": "read_document",
+          "input_schema": {
+            "properties": {
+              "doc_id": {
+                "maxLength": 200,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9_-]+$",
+                "type": "string"
+              },
+              "max_chars": {
+                "default": 20000,
+                "maximum": 50000,
+                "minimum": 100,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "doc_id"
+            ],
+            "type": "object",
+            "additionalProperties": false
+          },
+          "annotations": {
+            "title": null,
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": null,
+            "openWorldHint": null
+          }
+        },
+        {
+          "name": "preview_document_update",
+          "input_schema": {
+            "properties": {
+              "doc_id": {
+                "maxLength": 200,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9_-]+$",
+                "type": "string"
+              },
+              "tab_id": {
+                "maxLength": 200,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9_.-]+$",
+                "type": "string"
+              },
+              "old_text": {
+                "maxLength": 5000,
+                "minLength": 1,
+                "type": "string"
+              },
+              "new_text": {
+                "maxLength": 5000,
+                "type": "string"
+              }
+            },
+            "required": [
+              "doc_id",
+              "tab_id",
+              "old_text",
+              "new_text"
+            ],
+            "type": "object",
+            "additionalProperties": false
+          },
+          "annotations": {
+            "title": null,
+            "readOnlyHint": false,
+            "destructiveHint": false,
+            "idempotentHint": null,
+            "openWorldHint": null
+          }
+        },
+        {
+          "name": "apply_document_update",
+          "input_schema": {
+            "properties": {
+              "preview_id": {
+                "maxLength": 200,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9_-]+$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "preview_id"
+            ],
+            "type": "object",
+            "additionalProperties": false
+          },
+          "annotations": {
+            "title": null,
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": null
+          }
+        }
+      ]
+    },
+    {
+      "tool": "search_documents",
+      "arguments": {
+        "keyword": "CS146S OAuth Feasibility Test",
+        "scope": "owned_by_me"
+      },
+      "is_error": false,
+      "result": {
+        "documents": [
+          {
+            "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+            "title": "CS146S OAuth Feasibility Test",
+            "modified_time": "2026-10-04T22:02:20.370Z",
+            "url": "https://docs.google.com/document/d/171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM/edit?usp=drivesdk",
+            "drive_id": null,
+            "can_edit": true
+          }
+        ],
+        "next_page_token": null,
+        "incomplete_search": false
+      }
+    },
+    {
+      "tool": "read_document",
+      "arguments": {
+        "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM"
+      },
+      "is_error": false,
+      "result": {
+        "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+        "title": "CS146S OAuth Feasibility Test",
+        "revision_id": "ANLCKQkWyXbUyg5poSZkJ1SlMZc398MCZnK_0hFozMhGuojphKreyawzet1FMGT1O_WNV2zAjwtLGfCteOoFRFHjQHVkz0UVrP21mGV6Aw",
+        "url": "https://docs.google.com/document/d/171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM/edit",
+        "tabs": [
+          {
+            "tab_id": "t.0",
+            "title": "Tab 1",
+            "text": "CS146S MCP protocol test: preview and guarded document update succeeded.\n\n",
+            "truncated": false,
+            "total_chars": 74
+          }
+        ],
+        "note": "Text includes paragraphs and table cells; images, comments and formatting are not reproduced."
+      }
+    },
+    {
+      "tool": "preview_document_update",
+      "arguments": {
+        "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+        "tab_id": "t.0",
+        "old_text": "CS146S MCP protocol test: preview and guarded document update succeeded.",
+        "new_text": "CS146S final audit preview only; no write applied."
+      },
+      "is_error": false,
+      "result": {
+        "preview_id": "n0GO_gXbh2BL0oIyHO_L53LBI-FWnIpg",
+        "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+        "tab_id": "t.0",
+        "before": "CS146S MCP protocol test: preview and guarded document update succeeded.",
+        "after": "CS146S final audit preview only; no write applied.",
+        "expires_in_seconds": 600,
+        "next_step": "Show this exact change to the user; after approval call apply_document_update with preview_id in this same server session."
+      }
+    },
+    {
+      "tool": "read_document",
+      "arguments": {
+        "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM"
+      },
+      "is_error": false,
+      "result": {
+        "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+        "title": "CS146S OAuth Feasibility Test",
+        "revision_id": "ANLCKQkWyXbUyg5poSZkJ1SlMZc398MCZnK_0hFozMhGuojphKreyawzet1FMGT1O_WNV2zAjwtLGfCteOoFRFHjQHVkz0UVrP21mGV6Aw",
+        "url": "https://docs.google.com/document/d/171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM/edit",
+        "tabs": [
+          {
+            "tab_id": "t.0",
+            "title": "Tab 1",
+            "text": "CS146S MCP protocol test: preview and guarded document update succeeded.\n\n",
+            "truncated": false,
+            "total_chars": 74
+          }
+        ],
+        "note": "Text includes paragraphs and table cells; images, comments and formatting are not reproduced."
+      }
+    },
+    {
+      "tool": "read_document",
+      "arguments": {
+        "doc_id": "nonexistent-cs146s-test-document"
+      },
+      "is_error": true,
+      "result": [
+        {
+          "type": "text",
+          "text": "{\"error\": \"NOT_FOUND_OR_NO_ACCESS\", \"message\": \"Document not found or this account lacks access.\", \"retryable\": false, \"next_step\": \"Use search_documents to obtain a visible doc_id. Check the account and sharing; this error alone does not distinguish a missing file from denied access.\", \"source_tool\": \"search_documents\", \"possible_causes\": [\"missing_file\", \"wrong_account\", \"insufficient_file_permission\"]}",
+          "annotations": null,
+          "meta": null
+        }
+      ]
+    }
+  ]
+}

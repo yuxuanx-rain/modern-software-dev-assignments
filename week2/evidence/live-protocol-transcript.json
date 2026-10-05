@@ -1,0 +1,113 @@
+[
+  {
+    "tool": "search_documents",
+    "arguments": {
+      "keyword": "CS146S OAuth Feasibility Test",
+      "scope": "owned_by_me"
+    },
+    "is_error": false,
+    "result": {
+      "documents": [
+        {
+          "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+          "title": "CS146S OAuth Feasibility Test",
+          "modified_time": "2026-10-04T21:07:47.958Z",
+          "url": "https://docs.google.com/document/d/171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM/edit?usp=drivesdk",
+          "drive_id": null,
+          "can_edit": true
+        }
+      ],
+      "next_page_token": null,
+      "incomplete_search": false
+    }
+  },
+  {
+    "tool": "read_document",
+    "arguments": {
+      "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM"
+    },
+    "is_error": false,
+    "result": {
+      "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+      "title": "CS146S OAuth Feasibility Test",
+      "revision_id": "AHj4eMRrmIZIOnKCldXUqPNbVsxJjZK19adaMZ_zGrhdqCCnWuJBF0dRmjv6IVql5pYL1lgkOsekD3qwo2zAVyzxRr0EwuqURR5DMdrcsg",
+      "url": "https://docs.google.com/document/d/171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM/edit",
+      "tabs": [
+        {
+          "tab_id": "t.0",
+          "title": "Tab 1",
+          "text": "CS146S OAuth feasibility test: authorization and document update succeeded.\n\n",
+          "truncated": false,
+          "total_chars": 77
+        }
+      ],
+      "note": "Text includes paragraphs and table cells; images, comments and formatting are not reproduced."
+    }
+  },
+  {
+    "tool": "preview_document_update",
+    "arguments": {
+      "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+      "tab_id": "t.0",
+      "old_text": "CS146S OAuth feasibility test: authorization and document update succeeded.",
+      "new_text": "CS146S MCP protocol test: preview and guarded document update succeeded."
+    },
+    "is_error": false,
+    "result": {
+      "preview_id": "kaPmNN5qv4-WJs0vJjw9U50-C2qJTLui",
+      "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+      "tab_id": "t.0",
+      "before": "CS146S OAuth feasibility test: authorization and document update succeeded.",
+      "after": "CS146S MCP protocol test: preview and guarded document update succeeded.",
+      "expires_in_seconds": 600,
+      "next_step": "Show this exact change to the user; after approval call apply_document_update with preview_id in this same server session."
+    }
+  },
+  {
+    "tool": "read_document",
+    "arguments": {
+      "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM"
+    },
+    "is_error": false,
+    "result": {
+      "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+      "title": "CS146S OAuth Feasibility Test",
+      "revision_id": "AHj4eMRrmIZIOnKCldXUqPNbVsxJjZK19adaMZ_zGrhdqCCnWuJBF0dRmjv6IVql5pYL1lgkOsekD3qwo2zAVyzxRr0EwuqURR5DMdrcsg",
+      "url": "https://docs.google.com/document/d/171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM/edit",
+      "tabs": [
+        {
+          "tab_id": "t.0",
+          "title": "Tab 1",
+          "text": "CS146S OAuth feasibility test: authorization and document update succeeded.\n\n",
+          "truncated": false,
+          "total_chars": 77
+        }
+      ],
+      "note": "Text includes paragraphs and table cells; images, comments and formatting are not reproduced."
+    }
+  },
+  {
+    "tool": "apply_document_update",
+    "arguments": {
+      "preview_id": "kaPmNN5qv4-WJs0vJjw9U50-C2qJTLui"
+    },
+    "is_error": false,
+    "result": {
+      "doc_id": "171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM",
+      "status": "applied",
+      "occurrences_changed": 1,
+      "readback_verified": true,
+      "url": "https://docs.google.com/document/d/171pt4NrdDlZnOk7sqdxfYhMcgcV_Ja0_NdbmjOQLfDM/edit"
+    }
+  },
+  {
+    "tool": "read_document",
+    "arguments": {
+      "doc_id": "nonexistent-cs146s-test-document"
+    },
+    "is_error": true,
+    "result": [
+      "{\"error\": \"NOT_FOUND_OR_NO_ACCESS\", \"message\": \"Document not found or this account lacks access.\", \"retryable\": false, \"next_step\": \"Search again for a doc_id and check the Google account and file sharing permissions.\"}"
+    ]
+  }
+]
