@@ -1,0 +1,46 @@
+Command: npx web-test-runner --files test/attributes/week3-204-repro-original.js --browsers chromium --playwright 2>&1
+
+Exit code 1
+
+Chromium: |██████████████████████████████| 0/1 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 1 test files...
+
+
+test/attributes/week3-204-repro-original.js:
+
+ Week 3 – 204 swap suppression (original, FAILING assertion) [Chromium]
+   ✓ HTTP 204 body is NOT swapped into #result (expected behavior assertion fails)
+   𐄂 SHOWS THE BUG: asserting "Loaded." on a 204 response fails
+
+ ❌ Week 3 – 204 swap suppression (original, FAILING assertion) > SHOWS THE BUG: asserting "Loaded." on a 204 response fails
+      AssertionError: expected 'Empty' to equal 'Loaded.'
+      + expected - actual
+
+      -Empty
+      +Loaded.
+
+      at n.<anonymous> (test/attributes/week3-204-repro-original.js:58:31)
+
+
+
+Errors Reported in Tests:
+
+
+ ❌ Week 3 – 204 swap suppression (original, FAILING assertion) > SHOWS THE BUG: asserting "Loaded." on a 204 response fails
+      AssertionError: expected 'Empty' to equal 'Loaded.'
+      + expected - actual
+
+      -Empty
+      +Loaded.
+
+      at n.<anonymous> (test/attributes/week3-204-repro-original.js:58:31)
+
+Chromium: |██████████████████████████████| 1/1 test files | 1 passed, 1 failed
+
+Code coverage: 50.65 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 1s with 1 failed tests.

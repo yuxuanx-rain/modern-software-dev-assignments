@@ -1,0 +1,195 @@
+Command: npx web-test-runner \
+  --files test/attributes/hx-get.js \
+  --files test/attributes/hx-target.js \
+  --files test/core/ajax.js \
+  --files test/attributes/week3-target-repro.js \
+  --files test/attributes/week3-204-repro-original.js \
+  --files test/attributes/week3-204-repro-corrected.js \
+  --browsers chromium --playwright 2>&1
+
+Exit code 1
+
+Chromium: |████████████████████          | 0/6 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 6 test files...
+
+
+test/attributes/hx-get.js:
+
+ hx-get attribute [Chromium]
+   ✓ issues a GET request on click and swaps content
+   ✓ GET does not include surrounding data by default
+   ✓ GET on form includes its own data by default
+   ✓ GET on form with existing parameters works properly
+   ✓ GET on form with anchor works properly
+   ✓ GET on form with anchor works properly and scrolls to anchor id
+   ✓ issues a GET request on click and swaps content w/ data-* prefix
+   ✓ does not include a cache-busting parameter when not enabled
+   ✓ includes a cache-busting parameter when enabled w/ value "true" if no id on target
+   ✓ includes a cache-busting parameter when enabled w/ the id of the target if there is one
+
+
+test/attributes/hx-target.js:
+
+ hx-target attribute [Chromium]
+   ✓ targets an adjacent element properly
+   ✓ targets a parent element properly
+   ✓ targets a `this` element properly
+   ✓ targets a `closest` element properly
+   ✓ targets a `closest` element properly w/ hyperscript syntax
+   ✓ targets a `find` element properly
+   ✓ targets a `find` element properly w/ hyperscript syntax
+   ✓ targets an inner element properly
+   ✓ targets an inner element properly w/ hyperscript syntax
+   ✓ handles bad target gracefully
+   ✓ targets an adjacent element properly w/ data-* prefix
+   ✓ targets a `next` element properly
+   ✓ targets a `next` element properly w/ hyperscript syntax
+   ✓ targets a `previous` element properly
+   ✓ targets a `previous` element properly w/ hyperscript syntax
+   ✓ targets a `next` element properly without selector
+   ✓ targets a `previous` element properly without selector
+
+ 🚧 Browser logs:
+      htmx:targetError, bad
+
+test/attributes/week3-target-repro.js:
+
+ Week 3 manual target reproduction [Chromium]
+   ✓ updates the weather result after clicking
+
+
+test/core/ajax.js:
+
+ Core htmx AJAX Tests [Chromium]
+   ✓ issues a GET request on click and swaps content
+   ✓ processes inner content properly
+   ✓ handles swap outerHTML properly
+   ✓ handles beforebegin properly
+   ✓ handles afterbegin properly
+   ✓ handles afterbegin properly with no initial content
+   ✓ handles afterend properly
+   ✓ handles beforeend properly
+   ✓ handles beforeend properly with no initial content
+   ✓ handles hx-target properly
+   ✓ handles 204 NO CONTENT responses properly
+   ✓ handles 304 NOT MODIFIED responses properly
+   ✓ handles hx-trigger with non-default value
+   ✓ handles hx-trigger with load event
+   ✓ sets the content type of the request properly
+   ✓ issues two requests when clicked twice before response
+   ✓ issues two requests when clicked three times before response
+   ✓ properly handles hx-select for basic situation
+   ✓ properly handles hx-select for full html document situation
+   ✓ properly settles attributes on interior elements
+   ✓ properly settles attributes elements with single quotes in id
+   ✓ properly settles attributes elements with multiple single quotes in id
+   ✓ properly settles attributes elements with double quotes in id
+   ✓ properly handles multiple select input
+   ✓ properly handles multiple select input when "multiple" attribute is empty string
+   ✓ properly handles two multiple select inputs w/ same name
+   ✓ properly handles multiple email input
+   ✓ properly handles checkbox inputs
+   ✓ properly handles radio inputs
+   ✓ text nodes dont screw up settling via variable capture
+   ✓ script nodes evaluate
+   ✓ stand alone script nodes evaluate
+   ✓ script nodes can define global functions
+   ✓ child script nodes evaluate when children
+   ✓ child script nodes evaluate when first child
+   ✓ child script nodes evaluate whe
+
+... [947 characters truncated] ...
+
+ title update does not URL escape
+   ✓ by default 400 content is not swapped
+   ✓ 400 content can be swapped if configured to do so
+   ✓ 400 content can be retargeted if configured to do so
+   ✓ errors are triggered only on 400+
+   ✓ content can be modified if configured to do so
+   ✓ scripts w/ src attribute are properly loaded
+   ✓ should load tags with colon in their names
+   ✓ falls back to DOMParser when parseHTMLUnsafe is not available
+   ✓ properly handles clicked submit button with a value inside a htmx form
+   ✓ properly handles clicked submit input with a value inside a htmx form
+   ✓ properly handles clicked submit button with a value inside a non-htmx form
+   ✓ properly handles clicked submit input with a value inside a non-htmx form
+   ✓ properly handles clicked submit button with a value outside a htmx form
+   ✓ properly handles clicked submit input with a value outside a htmx form
+   ✓ properly handles clicked submit button with a value stacking with regular input
+   ✓ properly handles clicked submit input with a value stacking with regular input
+   ✓ properly handles clicked submit button with a value inside a form, referencing another form
+   ✓ properly handles clicked submit input with a value inside a form, referencing another form
+   ✓ sends referenced form values when a button referencing another form is clicked
+   ✓ sends referenced form values when a submit input referencing another form is clicked
+   ✓ properly handles inputs external to form
+   ✓ properly handles buttons with formmethod=dialog
+   ✓ can associate submit buttons from outside a form with the current version of the form after swap
+   ✓ properly handles form reset behaviour with a htmx enabled reset button inside a form
+   ✓ properly handles form reset behaviour with a htmx enabled reset button outside a form
+   ✓ script tags get swapped in with nonce applied from inlineScriptNonce
+   ✓ normalizeScriptTags logs error when insertBefore fails
+
+ 🚧 Browser logs:
+      Here...
+      Response Status Error Code 404 from http://localhost:8000/?wtr-session-id=_1FBLfL6K03DWU3jkmJxx, [object HTMLDivElement]
+      Response Status Error Code 404 from http://localhost:8000/?wtr-session-id=_1FBLfL6K03DWU3jkmJxx, [object HTMLDivElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLDivElement]
+      Response Status Error Code 400 from /test2, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      TypeError: parent.insertBefore is not a function
+        at src/htmx.js:588:18
+        at Array.forEach (<anonymous>)
+        at normalizeScriptTags (src/htmx.js:583:53)
+        at eval (eval at <anonymous> (src/htmx.js:865:14)
+        at src/htmx.js:865:14
+        at maybeEval (src/htmx.js:4024:14)
+        at Object.internalEval [as _] (src/htmx.js:864:12)
+        at n.<anonymous> (test/core/ajax.js:1382:10)
+
+
+test/attributes/week3-204-repro-corrected.js:
+
+ Week 3 – 204 swap suppression (corrected, 200 response) [Chromium]
+   ✓ HTTP 200 body IS swapped into #result
+
+
+test/attributes/week3-204-repro-original.js:
+
+ Week 3 – 204 swap suppression (original, FAILING assertion) [Chromium]
+   ✓ HTTP 204 body is NOT swapped into #result (expected behavior assertion fails)
+   𐄂 SHOWS THE BUG: asserting "Loaded." on a 204 response fails
+
+ ❌ Week 3 – 204 swap suppression (original, FAILING assertion) > SHOWS THE BUG: asserting "Loaded." on a 204 response fails
+      AssertionError: expected 'Empty' to equal 'Loaded.'
+      + expected - actual
+
+      -Empty
+      +Loaded.
+
+      at n.<anonymous> (test/attributes/week3-204-repro-original.js:58:31)
+
+
+
+Errors Reported in Tests:
+
+
+ ❌ Week 3 – 204 swap suppression (original, FAILING assertion) > SHOWS THE BUG: asserting "Loaded." on a 204 response fails
+      AssertionError: expected 'Empty' to equal 'Loaded.'
+      + expected - actual
+
+      -Empty
+      +Loaded.
+
+      at n.<anonymous> (test/attributes/week3-204-repro-original.js:58:31)
+
+Chromium: |██████████████████████████████| 6/6 test files | 107 passed, 1 failed, 1 skipped
+
+Code coverage: 74.85 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 2.1s with 1 failed tests.
