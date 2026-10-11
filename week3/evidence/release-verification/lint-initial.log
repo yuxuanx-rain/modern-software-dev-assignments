@@ -1,0 +1,12 @@
+> htmx.org@2.0.11 lint
+> eslint src/htmx.js test/attributes/ test/core/ test/util/ scripts/*.mjs
+
+
+<HTMX_REPO>/test/attributes/week3-swap-none-oob-repro.js
+  22:1   error  Expected indentation of 8 spaces but found 7      indent
+  33:45  error  Multiple spaces found before '// main swap s...'  no-multi-spaces
+  34:45  error  Multiple spaces found before '// OOB swap st...'  no-multi-spaces
+  43:1   error  Expected indentation of 8 spaces but found 7      indent
+
+✖ 4 problems (4 errors, 0 warnings)
+  4 errors and 0 warnings potentially fixable with the `--fix` option.

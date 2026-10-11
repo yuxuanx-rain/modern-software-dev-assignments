@@ -1,0 +1,43 @@
+Exit code 1
+
+Chromium: |██████████████████████████████| 0/1 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 1 test files...
+
+
+test/attributes/week3-swap-none-oob-repro.js:
+
+ week3 – hx-swap=none with oob response (constructed reproduction) [Chromium]
+   𐄂 result region shows Loaded and status region shows Ready after clicking Load
+
+ ❌ week3 – hx-swap=none with oob response (constructed reproduction) > result region shows Loaded and status region shows Ready after clicking Load
+      AssertionError: expected 'Empty' to equal 'Loaded'
+      + expected - actual
+
+      -Empty
+      +Loaded
+
+      at n.<anonymous> (test/attributes/week3-swap-none-oob-repro.js:28:31)
+
+
+
+Errors Reported in Tests:
+
+
+ ❌ week3 – hx-swap=none with oob response (constructed reproduction) > result region shows Loaded and status region shows Ready after clicking Load
+      AssertionError: expected 'Empty' to equal 'Loaded'
+      + expected - actual
+
+      -Empty
+      +Loaded
+
+      at n.<anonymous> (test/attributes/week3-swap-none-oob-repro.js:28:31)
+
+Chromium: |██████████████████████████████| 1/1 test files | 0 passed, 1 failed
+
+Code coverage: 56.74 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 0.7s with 1 failed tests.

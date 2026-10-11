@@ -1,0 +1,8 @@
+Investigate this constructed htmx interaction report in the current checkout.
+HTML: <div id="result">Empty</div><div id="status">Waiting</div><button hx-get="/fragment" hx-target="#result" hx-swap="none">Load</button>
+Server response: HTTP 200, Content-Type: text/html, body exactly: Loaded<span id="status" hx-swap-oob="innerHTML">Ready</span>
+Action: click Load.
+Expected: the result region says Loaded, and the status region says Ready.
+Actual: the result region stays Empty, while the status region says Ready.
+
+Execute the diagnosis end to end. Establish the relevant native test baseline, create a minimal browser reproduction, retain actual failing output, test a hypothesis with the smallest appropriate local correction, and verify the corrected case and adjacent existing tests. Save evidence under release-verification-artifacts. You may create local test and evidence files; do not change library source or global configuration, publish, or access external endpoints. Report actual commands, counts, observations, and classification.

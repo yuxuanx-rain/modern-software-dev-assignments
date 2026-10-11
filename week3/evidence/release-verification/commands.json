@@ -1,0 +1,32 @@
+[
+  {
+    "command": "npx web-test-runner --files test/attributes/hx-swap.js --browsers chromium --playwright 2>&1 | tail -20",
+    "is_error": false,
+    "output_file": "runner-1.log"
+  },
+  {
+    "command": "npx web-test-runner --files test/attributes/hx-swap-oob.js --browsers chromium --playwright 2>&1 | tail -15",
+    "is_error": false,
+    "output_file": "runner-2.log"
+  },
+  {
+    "command": "npx web-test-runner --files test/attributes/week3-swap-none-oob-repro.js --browsers chromium --playwright 2>&1",
+    "is_error": true,
+    "output_file": "runner-3.log"
+  },
+  {
+    "command": "npx web-test-runner --files test/attributes/week3-swap-none-oob-repro.js --browsers chromium --playwright 2>&1",
+    "is_error": false,
+    "output_file": "runner-4.log"
+  },
+  {
+    "command": "npx web-test-runner --files test/attributes/hx-swap.js test/attributes/hx-swap-oob.js test/attributes/week3-swap-none-oob-repro.js --browsers chromium --playwright 2>&1 | tail -20",
+    "is_error": false,
+    "output_file": "runner-5.log"
+  },
+  {
+    "command": "npx web-test-runner --files test/attributes/hx-swap.js test/attributes/hx-swap-oob.js test/attributes/week3-swap-none-oob-repro.js --browsers chromium --playwright 2>&1 > release-verification-artifacts/corrected-run.txt && echo \"saved\"",
+    "is_error": false,
+    "output_file": "runner-6.log"
+  }
+]

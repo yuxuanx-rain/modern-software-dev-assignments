@@ -1,0 +1,1349 @@
+Chromium: |██▎                           | 0/51 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 51 test files...
+
+
+test/attributes/hx-boost.js:
+
+ hx-boost attribute [Chromium]
+   ✓ handles basic anchor properly
+   ✓ handles basic form post properly
+   ✓ handles basic form post with button formaction properly
+   ✓ handles basic form post with button formmethod properly
+   ✓ handles basic form post properly w/ explicit action
+   ✓ handles basic form get properly
+   ✓ handles basic form with no explicit method property
+   ✓ does not boost forms with method="dialog"
+   ✓ handles basic anchor properly w/ data-* prefix
+   ✓ overriding default swap style does not effect boosting
+   ✓ anchors w/ explicit targets are not boosted
+   ✓ includes an HX-Boosted Header
+   ✓ form get w/ search params in action property excludes search params
+   ✓ form post w/ query params in action property uses full url
+   ✓ form get with an unset action properly submits
+   ✓ form get with no action properly clears existing parameters on submit
+   ✓ form get with an empty action properly clears existing parameters on submit
+   ✓ ctrlKey mouse click does not boost
+
+
+test/attributes/hx-delete.js:
+
+ hx-delete attribute [Chromium]
+   ✓ issues a DELETE request
+   ✓ issues a DELETE request w/ data-* prefix
+
+
+test/attributes/hx-confirm.js:
+
+ hx-confirm attribute [Chromium]
+   ✓ prompts using window.confirm when hx-confirm is set
+   ✓ stops the request if confirm is cancelled
+   ✓ uses the value of hx-confirm as the prompt
+   ✓ should prompt when htmx:confirm handler calls issueRequest
+   ✓ should include the question in htmx:confirm event
+   ✓ should allow skipping built-in window.confirm when using issueRequest
+   ✓ should allow htmx:confirm even when no hx-confirm is set
+
+
+test/attributes/hx-disabled-elt.js:
+
+ hx-disabled-elt attribute [Chromium]
+   ✓ single element can be disabled w/ hx-disabled elts
+   ✓ single element can be disabled w/ data-hx-disabled elts
+   ✓ single element can be disabled w/ closest syntax
+   ✓ preserve pre-disabled elements
+   ✓ multiple requests with same disabled elt are handled properly
+   ✓ multiple elts can be disabled
+   ✓ load trigger does not prevent disabled element working
+   ✓ hx-disabled-elt supports multiple extended selectors
+   ✓ closest/find/next/previous handle nothing to find without exception
+
+ 🚧 Browser logs:
+      The selector "closest input" on hx-disabled-elt returned no matches!
+      The selector "find input" on hx-disabled-elt returned no matches!
+      The selector "next input" on hx-disabled-elt returned no matches!
+      The selector "previous input" on hx-disabled-elt returned no matches!
+
+
+test/attributes/hx-disinherit.js:
+
+ hx-disinherit attribute [Chromium]
+   ✓ basic inheritance sanity-check
+   ✓ disinherit exclude single attribute
+   ✓ disinherit exclude multiple attributes
+   ✓ disinherit exclude all attributes
+   ✓ same-element inheritance disable
+   ✓ same-element inheritance disable with child nodes
+   ✓ boosted element hx-disinherit sanity check
+   ✓ boosted element inheritance manual unset
+   ✓ nested htmx-node with boosting parent
+
+ 🚧 Browser logs:
+      <span id="cta"><div id="unique"><div id="snowflake">Hello world</div></div></span>
+      <div id="unique"><div id="snowflake">Hello world</div></div>
+
+
+test/attributes/hx-ext.js:
+
+ hx-ext attribute [Chromium]
+   ✓ A simple extension is invoked properly
+   ✓ Extensions are merged properly
+   ✓ supports comma separated lists
+   ✓ A simple extension is invoked properly  w/ data-* prefix
+   ✓ A simple extension is invoked properly when an HX-Trigger event w/ a namespace fires
+   ✓ A simple extension is invoked properly for elements it specified in getSelectors
+   ✓ Extensions are ignored properly
+   ✓ oob swap via swap extension uses isInlineSwap correctly
+   ✓ isInlineSwap/handleSwap handling catches, logs and ignores exceptions in extension code
+
+ 🚧 Browser logs:
+      Error: simulate exception handling in isInlineSwap
+        at Object.isInlineSwap (test/attributes/hx-ext.js:29:44)
+        at isInlineSwap (src/htmx.js:1444:23)
+        at src/htmx.js:1486:16
+        at forEach (src/htmx.js:762:9)
+        at oobSwap (src/htmx.js:1479:7)
+        at src/htmx.js:1906:11
+        at forEach (src/htmx.js:762:9)
+        at findAndSwapOobElements (src/htmx.js:1902:5)
+        at doSwap (src/htmx.js:1985:9)
+        at swap (src/htmx.js:2108:9)
+      Error: simulate exception handling in handleSwap
+        at Object.handleSwap (test/attributes/hx-ext.js:32:44)
+        at swapWithStyle (src/htmx.js:1821:37)
+        at src/htmx.js:1496:13
+        at forEach (src/htmx.js:762:9)
+        at oobSwap (src/htmx.js:1479:7)
+        at src/htmx.js:1906:11
+        at forEach (src/htmx.js:762:9)
+        at findAndSwapOobElements (src/htmx.js:1902:5)
+        at doSwap (src/htmx.js:1985:9)
+        at swap (src/htmx.js:2108:9)
+
+
+test/attributes/hx-get.js:
+
+ hx-get attribute [Chromium]
+   ✓ issues a GET request on click and swaps content
+   ✓ GET does not include surrounding data by default
+   ✓ GET on form includes its own data by default
+   ✓ GET on form with existing parameters works properly
+   ✓ GET on form with anchor works properly
+   ✓ GET on form with anchor works properly and scrolls to anchor id
+   ✓ issues a GET request on click and swaps content w/ data-* prefix
+   ✓ does not include a cache-busting parameter when not enabled
+   ✓ includes a cache-busting parameter when enabled w/ value "true" if no id on target
+   ✓ includes a cache-busting parameter when enabled w/ the id of the target if there is one
+
+
+test/attributes/hx-headers.js:
+
+ hx-headers attribute [Chromium]
+   ✓ basic hx-headers works
+   ✓ basic hx-headers works with braces
+   ✓ multiple hx-headers works
+   ✓ hx-headers can be on parents
+   ✓ hx-headers can override parents
+   ✓ hx-headers overrides inputs
+   ✓ basic hx-headers javascript: works
+   ✓ hx-headers works with braces
+   ✓ multiple hx-headers works with javascript
+   ✓ hx-headers can be on parents with javascript
+   ✓ hx-headers can override parents with javascript
+   ✓ hx-headers overrides inputs with javascript
+
+
+test/attributes/hx-history-elt.js:
+
+ hx-history attribute [Chromium]
+   ✓ content of hx-history-elt is used during history replacment
+
+test/attributes/hx-include.js:
+
+ hx-include attribute [Chromium]
+   ✓ By default an input includes itself
+   ✓ non-GET includes closest form
+   ✓ non-GET includes closest form and overrides values included that exist outside the form
+   ✓ GET does not include closest form by default
+   ✓ Single input not included twice when in form
+   ✓ Two inputs are included twice when they have the same name
+   ✓ Two inputs are included twice when in form when they have the same name
+   ✓ Input not included twice when it explicitly refers to parent form
+   ✓ Input can be referred to externally
+   ✓ Input can be referred to externally and then via a form then it will only be included once
+   ✓ checkbox can be referred to externally
+   ✓ files input can be referred to externally
+   ✓ properly handles multiple select input referred to externally
+   ✓ properly handles multiple select input referred to externally and then via a form then it will only be included once
+   ✓ Two inputs can be referred to externally
+   ✓ A form can be referred to externally
+   ✓ By default an input includes itself w/ data-* prefix
+   ✓ If the element is not includeable, its descendant inputs are included
+   ✓ The `closest` modifier can be used in the hx-include selector
+   ✓ The `this` modifier can be used in the hx-include selector
+   ✓ Multiple extended selectors can be used in hx-include
+   ✓ hx-include processes extended selector in between standard selectors
+   ✓ hx-include processes nested standard selectors correctly
+   ✓ hx-include processes wrapped next/previous selectors correctly
+   ✓ hx-include processes wrapped closest selector correctly
+   ✓ `inherit` can be used to expand parent hx-include
+   ✓ `inherit` can be used to expand multiple parents hx-include
+   ✓ `inherit` chain breaks properly
+   ✓ `inherit` syntax regex properly catches keyword
+
+
+test/attributes/hx-indicator.js:
+
+ hx-indicator attribute [Chromium]
+   ✓ Indicator classes are properly put on element with no explicit indicator
+   ✓ Indicator classes are properly put on element with explicit indicator
+   ✓ Indicator classes are properly put on element with relative indicator
+   ✓ Indicator classes are properly put on element with explicit indicator w/ data-* prefix
+   ✓ allows closest syntax in hx-indicator
+   ✓ is removed when initiating element is removed from the DOM
+   ✓ allows this syntax in hx-indicator
+   ✓ multiple requests with same indicator are handled properly
+   ✓ `inherit` can be used to expand parent hx-indicator
+   ✓ `inherit` can be used to expand multiple parents hx-indicator
+   ✓ `inherit` chain breaks properly
+
+
+test/attributes/hx-history.js:
+
+ hx-history attribute [Chromium]
+   ✓ history cache should not contain embargoed content
+
+
+test/attributes/hx-on-wildcard.js:
+
+ hx-on:* attribute [Chromium]
+   ✓ can handle basic events w/ no other attributes
+   ✓ can use dashes rather than colons
+   ✓ can modify a parameter via htmx:configRequest
+   ✓ can modify a parameter via htmx:configRequest with dashes
+   ✓ expands :: shorthand into htmx:
+   ✓ expands -- shorthand into htmx:
+   ✓ can cancel an event via preventDefault for htmx:config-request
+   ✓ can respond to data-hx-on
+   ✓ has the this symbol set to the element
+   ✓ can handle multi-line JSON
+   ✓ can handle multiple event handlers in the presence of multi-line JSON
+   ✓ should fire when triggered by load
+   ✓ should fire when triggered by revealed
+   ✓ de-initializes hx-on-* content properly
+   ✓ is not evaluated when allowEval is false
+   ✓ can handle being swapped using innerHTML
+   ✓ cleans up all handlers when the DOM updates
+
+ 🚧 Browser logs:
+      htmx:evalDisallowedError
+
+
+test/attributes/hx-inherit.js:
+
+ hx-inherit attribute [Chromium]
+   ✓ can disable inheritance
+   ✓ can enable inheritance for all
+   ✓ can enable inheritance by name
+   ✓ can enable inheritance by name (bad name, no inheritance)
+   ✓ can enable inheritance by name with multiple attributes
+
+
+test/attributes/hx-params.js:
+
+ hx-params attribute [Chromium]
+   ✓ none excludes all params
+   ✓ "*" includes all params
+   ✓ named includes works
+   ✓ named exclude works
+   ✓ named exclude works  w/ data-* prefix
+
+
+test/attributes/hx-partial.js:
+
+ hx-partial [Chromium]
+   ✓ swaps partial with explicit hx-target
+   ✓ swaps partial with custom swap style
+   ✓ swaps main target and partial target when both present
+   ✓ does not swap main target when response contains only partial
+   ✓ does not swap main target when only whitespace and partial present
+   ✓ swaps both targets when empty element and partial present
+   ✓ swaps both targets when plain text and partial present
+   ✓ swaps partial to all elements matching a class selector
+   ✓ resolves closest selector relative to triggering element
+   ✓ executes script in partial
+   ✓ does not execute script in partial when allowScriptTags is false
+   ✓ template fallback form works identically
+   ✓ multiple partials in one response all execute
+   ✓ swaps partial using element id as implicit target
+   ✓ partial with no matching target does not throw
+   ✓ swaps partial content independently to each matched target
+   ✓ fires htmx:processTemplate for unknown hx-xxx tags allowing custom handling
+   ✓ partial initializes htmx attributes in swapped content
+
+ 🚧 Browser logs:
+      htmx:partialErrorNoTarget
+
+
+test/attributes/hx-patch.js:
+
+ hx-patch attribute [Chromium]
+   ✓ issues a PATCH request
+   ✓ issues a PATCH request w/ data-* prefix
+
+
+test/attributes/hx-post.js:
+
+ hx-post attribute [Chromium]
+   ✓ issues a POST request with proper headers
+   ✓ issues a POST request with proper headers  w/ data-* prefix
+
+
+test/attributes/hx-preserve.js:
+
+ hx-preserve attribute [Chromium]
+   ✓ handles basic response properly
+   ✓ handles preserved element that might not be existing
+   ✓ preserved element should not be swapped if it lies outside of hx-select
+   ✓ preserved element should not be swapped if it is part of a oob swap
+   ✓ preserved element should not be swapped if it is part of a hx-select-oob swap
+   ✓ preserved element should relocated unchanged if it is part of a oob swap targeting a different loction
+   ✓ when moveBefore is disabled/missing preseved content is copied into fragment instead of pantry
+
+
+test/attributes/hx-prompt.js:
+
+ hx-prompt attribute [Chromium]
+   ✓ hx-prompt should set request header to prompt response
+   ✓ hx-prompt that is cancled returns null and blocks the request
+
+
+test/attributes/hx-put.js:
+
+ hx-put attribute [Chromium]
+   ✓ issues a PUT request
+   ✓ issues a PUT request w/ data-* prefix
+
+
+test/attributes/hx-replace-url.js:
+
+ hx-replace-url attribute [Chromium]
+   ✓ navigation should replace an element into the cache when true
+   ✓ should handle HX-Replace-Url response header
+
+Chromium: |██████████████▋               | 22/51 test files | 180 passed, 0 failed
+
+Running tests...
+
+
+test/attributes/hx-request.js:
+
+ hx-request attribute [Chromium]
+   ✓ basic hx-request timeout works
+   ✓ hx-request header works
+
+ 🚧 Browser logs:
+      htmx:afterRequest, [object HTMLDivElement]
+      htmx:timeout, [object HTMLDivElement]
+
+
+test/attributes/hx-push-url.js:
+
+ hx-push-url attribute [Chromium]
+   ✓ navigation should push an element into the cache when true
+   ✓ navigation should not push an element into the cache when false
+   ✓ navigation should push an element into the cache when string
+   ✓ restore should return old value
+   ✓ history restore should not have htmx support classes in content
+   ✓ cache should only store 10 entries
+   ✓ cache miss should issue another GET
+   ✓ cache miss should refresh when refreshOnHistoryMiss true
+   ✓ navigation should push an element into the cache  w/ data-* prefix
+   ✓ deals with malformed JSON in history cache when getting
+   ✓ deals with malformed JSON in history cache when saving
+   ✓ does not blow out cache when saving a URL twice
+   ✓ setting history cache size to 0 clears cache
+   ✓ history cache is LRU
+   ✓ htmx:afterSettle is called when replacing outerHTML
+   ✓ should include parameters on a get
+   ✓ saveToHistoryCache should not throw
+   ✓ when sessionStorage disabled history not saved fine
+   ✓ normalizePath falls back to no normalization if path not valid URL
+   ✓ history cache clears out disabled attribute
+   ✓ ensure cache-busting parameter not pushed to history url
+   ✓ ensure history pushState called
+   ✓ should handle HX-Push response header
+   ✓ should handle HX-Push-Url response header
+   ✓ should ignore HX-Push-Url=false response header
+   ✓ normalizes relative paths correctly
+   ✓ normalizes paths with query strings correctly
+   ✓ normalizes paths with trailing slashes
+   ✓ boosted anchor should not push url when hx-push-url="false" on parent
+   ✓ boosted anchor should not push url when hx-push-url="false" on parent with multiple links
+   ✓ pushing url without anchor will retain the page anchor tag
+
+ 🚧 Browser logs:
+      SyntaxError: Unexpected token 'I', "Invalid JSON" is not valid JSON
+        at JSON.parse (<anonymous>)
+        at parseJSON (src/htmx.js:816:19)
+        at getCachedHistory (src/htmx.js:3278:26)
+        at n.<anonymous> (test/attributes/hx-push-url.js:167:45)
+      SyntaxError: Unexpected token 'I', "Invalid JSON" is not valid JSON
+        at JSON.parse (<anonymous>)
+        at parseJSON (src/htmx.js:816:19)
+        at saveToHistoryCache (src/htmx.js:3229:26)
+        at n.<anonymous> (test/attributes/hx-push-url.js:173:33)
+      htmx:historyCacheError
+
+
+test/attributes/hx-select-oob.js:
+
+ hx-select-oob attribute [Chromium]
+   ✓ basic hx-select-oob works
+   ✓ multiple hx-select-oobs works
+   ✓ basic hx-select-oob ignores bad selector
+
+
+test/attributes/hx-select.js:
+
+ BOOTSTRAP - htmx AJAX Tests [Chromium]
+   ✓ properly handles a partial of HTML
+   ✓ properly handles a full HTML document
+   ✓ properly handles a full HTML document  w/ data-* prefix
+
+
+test/attributes/hx-swap-oob.js:
+
+ hx-swap-oob attribute [Chromium]
+   ✓ still finds an oob target still in the document when the triggering element is detached before the response arrives
+   ✓ handles basic response properly with config {"allowNestedOobSwaps":true}
+   ✓ handles basic response properly with config {"allowNestedOobSwaps":false}
+   ✓ oob swap works when the response has a body tag with config {"allowNestedOobSwaps":true}
+   ✓ oob swap works when the response has a body tag with config {"allowNestedOobSwaps":false}
+   ✓ oob swap works when the response has html and body tags with config {"allowNestedOobSwaps":true}
+   ✓ oob swap works when the response has html and body tags with config {"allowNestedOobSwaps":false}
+   ✓ handles more than one oob swap properly with config {"allowNestedOobSwaps":true}
+   ✓ handles more than one oob swap properly with config {"allowNestedOobSwaps":false}
+   ✓ handles remvoing hx-swap-oob tag
+   ✓ handles remvoing data-hx-swap-oob tag
+   ✓ handles no id match properly
+   ✓ handles basic response properly w/ data-* prefix
+   ✓ handles outerHTML response properly
+   ✓ handles innerHTML response properly
+   ✓ oob swaps can be nested in content with config {"allowNestedOobSwaps": true}
+   ✓ oob swaps in nested content are ignored and stripped with config {"allowNestedOobSwaps": false}
+   ✓ oob swaps can use selectors to match up
+   ✓ swaps into all targets that match the selector (innerHTML)
+   ✓ swaps into all targets that match the selector (outerHTML)
+   ✓ oob swap delete works properly
+   ✓ oob swap removes templates used for oob encapsulation only properly
+   ✓ oob swap keeps templates not used for oob swap encapsulation
+   ✓ oob swap supports table row in fragment along other oob swap elements with config {"allowNestedOobSwaps":true}
+   ✓ oob swap supports table row in fragment along other oob swap elements with config {"allowNestedOobSwaps":false}
+   ✓ handles oob target in web components with both inside shadow root and config {"allowNestedOobSwaps":true}
+   ✓ handles oob target in web components with both inside shadow root and config {"allowNestedOobSwaps":false}
+   ✓ handles oob target in web components with main target outside web component config {"allowNestedOobSwaps":true}
+   ✓ handles oob target in web components with main target outside web component config {"allowNestedOobSwaps":false}
+   ✓ handles global oob target in web components with main target inside web component config {"allowNestedOobSwaps":true}
+   ✓ handles global oob target in web components with main target inside web component config {"allowNestedOobSwaps":false}
+   ✓ triggers htmx:oobErrorNoTarget when no targets found
+   ✓ handles elements with IDs containing special characters properly
+   ✓ handles one swap into multiple elements with the same ID properly
+
+ 🚧 Browser logs:
+      htmx:oobErrorNoTarget, #d1
+      htmx:oobErrorNoTarget, #nonexistent
+
+
+test/attributes/hx-swap.js:
+
+ hx-swap attribute [Chromium]
+   ✓ swap innerHTML properly
+   ✓ swap textContent properly with HTML tags
+   ✓ swap textContent properly with HTML tags and text
+   ✓ swap textContent ignores OOB swaps
+   ✓ swap textContent properly with text
+   ✓ swap outerHTML properly
+   ✓ swap outerHTML on body falls back to innerHTML properly
+   ✓ swap beforebegin properly
+   ✓ swap afterbegin properly
+   ✓ swap afterbegin properly with no initial content
+   ✓ swap afterend properly
+   ✓ handles beforeend properly
+   ✓ handles beforeend properly with no initial content
+   ✓ properly parses various swap specifications
+   ✓ works with a swap delay
+   ✓ works immediately with no swap delay
+   ✓ works with transition:true
+   ✓ works with a settle delay
+   ✓ works with no settle delay
+   ✓ works with scroll:top
+   ✓ works with scroll:bottom
+   ✓ works with show:top
+   ✓ works with show:bottom
+   ✓ works with show:window:bottom
+   ✓ works with focus-scroll:true
+   ✓ swap outerHTML properly  w/ data-* prefix
+   ✓ swap none works properly
+   ✓ swap outerHTML does not trigger htmx:afterSwap on original element
+   ✓ swap delete works properly
+   ✓ in presence of bad swap spec, it uses the default swap strategy
+   ✓ hx-swap ignoreTitle works
+   ✓ swapError fires if swap throws exception
+
+ 🚧 Browser logs:
+      Unknown modifier in hx-swap: nonsense
+      Unknown modifier in hx-swap: nonsense
+      htmx:swapError, [object HTMLDivElement]
+      Error: throw, [object HTMLDivElement]
+
+
+test/attributes/hx-sync.js:
+
+ hx-sync attribute [Chromium]
+   ✓ can use drop strategy
+   ✓ defaults to the drop strategy
+   ✓ can use replace strategy
+   ✓ can use queue all strategy
+   ✓ can use queue last strategy
+   ✓ can use queue first strategy
+   ✓ can use abort strategy to end existing abortable request
+   ✓ can use abort strategy to drop abortable request when one is in flight
+   ✓ can abort a request programmatically
+
+ 🚧 Browser logs:
+      htmx:afterRequest, [object HTMLButtonElement]
+      htmx:sendAbort, [object HTMLButtonElement]
+      htmx:afterRequest, [object HTMLButtonElement]
+      htmx:sendAbort, [object HTMLButtonElement]
+      htmx:afterRequest, [object HTMLButtonElement]
+      htmx:sendAbort, [object HTMLButtonElement]
+
+
+test/attributes/hx-target.js:
+
+ hx-target attribute [Chromium]
+   ✓ targets an adjacent element properly
+   ✓ targets a parent element properly
+   ✓ targets a `this` element properly
+   ✓ targets a `closest` element properly
+   ✓ targets a `closest` element properly w/ hyperscript syntax
+   ✓ targets a `find` element properly
+   ✓ targets a `find` element properly w/ hyperscript syntax
+   ✓ targets an inner element properly
+   ✓ targets an inner element properly w/ hyperscript syntax
+   ✓ handles bad target gracefully
+   ✓ targets an adjacent element properly w/ data-* prefix
+   ✓ targets a `next` element properly
+   ✓ targets a `next` element properly w/ hyperscript syntax
+   ✓ targets a `previous` element properly
+   ✓ targets a `previous` element properly w/ hyperscript syntax
+   ✓ targets a `next` element properly without selector
+   ✓ targets a `previous` element properly without selector
+
+ 🚧 Browser logs:
+      htmx:targetError, bad
+
+
+test/attributes/hx-vals.js:
+
+ hx-vals attribute [Chromium]
+   ✓ basic hx-vals works
+   ✓ basic hx-vals works with braces
+   ✓ multiple hx-vals works
+   ✓ Dynamic hx-vals using spread operator works
+   ✓ hx-vals can be on parents
+   ✓ hx-vals can override parents
+   ✓ hx-vals overrides inputs
+   ✓ hx-vals overrides hx-vars
+   ✓ basic hx-vals javascript: works
+   ✓ hx-vals works with braces
+   ✓ multiple hx-vals works with javascript
+   ✓ hx-vals can be on parents with javascript
+   ✓ hx-vals can override parents with javascript
+   ✓ hx-vals overrides inputs with javascript
+   ✓ hx-vals treats objects as JSON
+   ✓ basic hx-vals can be unset
+   ✓ basic hx-vals with braces can be unset
+   ✓ multiple hx-vals can be unset
+   ✓ unsetting hx-vals maintains input values
+   ✓ javascript: is not evaluated when allowEval is false
+   ✓ js: is not evaluated when allowEval is false
+   ✓ using js: with hx-vals has event available
+   ✓ using js: with hx-vals has event available when used with a delay
+   ✓ hx-vals works with null values
+   ✓ hx-vals works with object values
+   ✓ js: this refers to the element with the hx-vals attribute
+
+ 🚧 Browser logs:
+      htmx:evalDisallowedError
+      htmx:evalDisallowedError
+
+
+test/attributes/week3-swap-none-oob-repro.js:
+
+ week3 – hx-swap=none with oob response (corrected) [Chromium]
+   ✓ with hx-swap=none: result stays unchanged, status oob-swaps to Ready
+   ✓ with hx-swap=innerHTML: result shows Loaded and status oob-swaps to Ready
+
+
+test/attributes/hx-vars.js:
+
+ hx-vars attribute [Chromium]
+   ✓ basic hx-vars works
+   ✓ hx-vars works with braces
+   ✓ multiple hx-vars works
+   ✓ hx-vars can be on parents
+   ✓ hx-vars can override parents
+   ✓ hx-vars overrides inputs
+   ✓ basic hx-vars can be unset
+   ✓ basic hx-vars with braces can be unset
+   ✓ multiple hx-vars can be unset
+   ✓ unsetting hx-vars maintains input values
+   ✓ is not evaluated when allowEval is false
+
+ 🚧 Browser logs:
+      htmx:evalDisallowedError
+
+
+test/core/ajax.js:
+
+ Core htmx AJAX Tests [Chromium]
+   ✓ issues a GET request on click and swaps content
+   ✓ processes inner content properly
+   ✓ handles swap outerHTML properly
+   ✓ handles beforebegin properly
+   ✓ handles afterbegin properly
+   ✓ handles afterbegin properly with no initial content
+   ✓ handles afterend properly
+   ✓ handles beforeend properly
+   ✓ handles beforeend properly with no initial content
+   ✓ handles hx-target properly
+   ✓ handles 204 NO CONTENT responses properly
+   ✓ handles 304 NOT MODIFIED responses properly
+   ✓ handles hx-trigger with non-default value
+   ✓ handles hx-trigger with load event
+   ✓ sets the content type of the request properly
+   ✓ issues two requests when clicked twice before response
+   ✓ issues two requests when clicked three times before response
+   ✓ properly handles hx-select for basic situation
+   ✓ properly handles hx-select for full html document situation
+   ✓ properly settles attributes on interior elements
+   ✓ properly settles attributes elements with single quotes in id
+   ✓ properly settles attributes elements with multiple single quotes in id
+   ✓ properly settles attributes elements with double quotes in id
+   ✓ properly handles multiple select input
+   ✓ properly handles multiple select input when "multiple" attribute is empty string
+   ✓ properly handles two multiple select inputs w/ same name
+   ✓ properly handles multiple email input
+   ✓ properly handles checkbox inputs
+   ✓ properly handles radio inputs
+   ✓ text nodes dont screw up settling via variable capture
+   ✓ script nodes evaluate
+   ✓ stand alone script nodes evaluate
+   ✓ script nodes can define global functions
+   ✓ child script nodes evaluate when children
+   ✓ child script nodes evaluate when first child
+   ✓ child script nodes evaluate when not explicitly marked javascript
+   ✓ script nodes do not evaluate when explicitly marked as something other than javascript
+   ✓ script nodes evaluate after swap
+   - script node exceptions do not break rendering
+   ✓ allows empty verb values
+   ✓ allows blank verb values
+   ✓ input values are not settle swapped (causes flicker)
+   ✓ autofocus attribute works properly
+   ✓ autofocus attribute works properly w/ child
+   ✓ autofocus attribute works properly w/ true value
+   ✓ multipart/form-data encoding works
+   ✓ removed elements do not issue requests
+   ✓ title tags update title
+   ✓ svg title tags do not update title
+   ✓ first title tag outside svg title tags updates title
+   ✓ title update does not URL escape
+   ✓ by default 400 content is not swapped
+   ✓ 400 content can be swapped if configured to do so
+   ✓ 400 content can be retargeted if configured to do so
+   ✓ errors are triggered only on 400+
+   ✓ content can be modified if configured to do so
+   ✓ scripts w/ src attribute are properly loaded
+   ✓ should load tags with colon in their names
+   ✓ falls back to DOMParser when parseHTMLUnsafe is not available
+   ✓ properly handles clicked submit button with a value inside a htmx form
+   ✓ properly handles clicked submit input with a value inside a htmx form
+   ✓ properly handles clicked submit button with a value inside a non-htmx form
+   ✓ properly handles clicked submit input with a value inside a non-htmx form
+   ✓ properly handles clicked submit button with a value outside a htmx form
+   ✓ properly handles clicked submit input with a value outside a htmx form
+   ✓ properly handles clicked submit button with a value stacking with regular input
+   ✓ properly handles clicked submit input with a value stacking with regular input
+   ✓ properly handles clicked submit button with a value inside a form, referencing another form
+   ✓ properly handles clicked submit input with a value inside a form, referencing another form
+   ✓ sends referenced form values when a button referencing another form is clicked
+   ✓ sends referenced form values when a submit input referencing another form is clicked
+   ✓ properly handles inputs external to form
+   ✓ properly handles buttons with formmethod=dialog
+   ✓ can associate submit buttons from outside a form with the current version of the form after swap
+   ✓ properly handles form reset behaviour with a htmx enabled reset button inside a form
+   ✓ properly handles form reset behaviour with a htmx enabled reset button outside a form
+   ✓ script tags get swapped in with nonce applied from inlineScriptNonce
+   ✓ normalizeScriptTags logs error when insertBefore fails
+
+ 🚧 Browser logs:
+      Here...
+      Response Status Error Code 404 from http://localhost:8000/?wtr-session-id=hGeDSf6A0RLxrj3cRWL8b, [object HTMLDivElement]
+      Response Status Error Code 404 from http://localhost:8000/?wtr-session-id=hGeDSf6A0RLxrj3cRWL8b, [object HTMLDivElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLDivElement]
+      Response Status Error Code 400 from /test2, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      TypeError: parent.insertBefore is not a function
+        at src/htmx.js:588:18
+        at Array.forEach (<anonymous>)
+        at normalizeScriptTags (src/htmx.js:583:53)
+        at eval (eval at <anonymous> (src/htmx.js:865:14)
+        at src/htmx.js:865:14
+        at maybeEval (src/htmx.js:4024:14)
+        at Object.internalEval [as _] (src/htmx.js:864:12)
+        at n.<anonymous> (test/core/ajax.js:1382:10)
+
+
+test/attributes/hx-trigger.js:
+
+ hx-trigger attribute [Chromium]
+   ✓ non-default value works
+   ✓ changed modifier works
+   ✓ changed modifier works along from clause with single input
+   ✓ changed modifier works along from clause with two inputs
+   ✓ changed modifier counts each triggerspec separately
+   ✓ separate changed modifier works along from clause with two inputs
+   ✓ once modifier works
+   ✓ once modifier works with multiple triggers
+   ✓ polling works
+   ✓ non-default value works w/ data-* prefix
+   ✓ works with multiple events
+   ✓ parses spec strings
+   ✓ sets default trigger for forms
+   ✓ sets default trigger for form elements
+   ✓ filters properly with false filter spec
+   ✓ filters properly with true filter spec
+   ✓ filters properly compound filter spec
+   ✓ can refer to target element in condition
+   ✓ can refer to target element in condition w/ equality
+   ✓ negative condition
+   ✓ global function call works
+   ✓ global property event filter works
+   ✓ global variable filter works
+   ✓ can filter polling
+   ✓ bad condition issues error
+   ✓ filters properly with true for empty condition
+   ✓ syntax error in condition issues error
+   ✓ filters properly with condition containing square backets
+   ✓ from clause works
+   ✓ from clause works with body selector
+   ✓ from clause works with document selector
+   ✓ from clause works with window selector
+   ✓ from clause works with closest clause
+   ✓ from clause works with find clause
+   ✓ from clause works with next
+   ✓ from clause works with previous
+   ✓ event listeners on other elements are removed when an element is swapped out
+   ✓ multiple triggers with from clauses mixed in work
+   ✓ from clause works with multiple extended selectors
+   ✓ event listeners can filter on target
+   ✓ consume prevents event propagation
+   ✓ throttle prevents multiple requests from happening
+   ✓ A throttle of 0 does not prevent multiple requests from happening
+   ✓ delay delays the request
+   ✓ A 0 delay does not delay the request
+   ✓ requests are queued with last one winning by default
+   ✓ queue:all queues all requests
+   ✓ queue:first queues first request
+   ✓ queue:none queues no requests
+   ✓ load event works w/ positive filters
+   ✓ load event works w/ negative filters
+   ✓ reveal event works on two elements
+   ✓ scrolling triggers revealed event
+   ✓ scrolling triggers intersect event
+   ✓ triggering revealed while component not yet inited still works
+   ✓ reveal event works when triggered by window
+   ✓ revealed can be paired w/ other events
+   ✓ revealed doesnt cause other events to trigger
+   ✓ fires the htmx:trigger event when an AJAX attribute is specified
+   ✓ fires the htmx:trigger event when no AJAX attribute is specified
+   ✓ fires the htmx:trigger event for delayed triggers
+   ✓ fires the htmx:trigger event when the trigger is a load
+   ✓ filters support "this" reference to the current element
+   ✓ correctly handles CSS descendant combinators
+   ✓ correctly handles CSS descendant combinators in modifier target
+   ✓ correctly handles CSS descendant combinators in modifier root
+   ✓ correctly handles intersect with modifier threshold
+   ✓ issues error with invalid trigger spec
+   ✓ uses trigger specs cache if defined
+   ✓ correctly reuses trigger specs from the cache if defined
+   ✓ handles spaces at the end of trigger specs
+   ✓ Removing polling trigger and processing node removes timeout
+
+ 🚧 Browser logs:
+      htmx:syntax:error
+      htmx:syntax:error
+      htmx:syntax:error
+      htmx:syntax:error
+      TypeError: Cannot read properties of undefined (reading 'b')
+       return (function(event){ return (((event.a) ? (event.a) : (window.a)).b)})
+      SyntaxError: Unexpected token ')'
+       return (function(event){ return ({)})
+      htmx:syntax:error
+      htmx:syntax:error
+      htmx:syntax:error
+      undefined
+
+
+test/core/class-cleanup.js:
+
+ Class attribute cleanup after htmx operations [Chromium]
+   ✓ removes empty class attribute after settling class is removed
+   ✓ removes empty class attribute after swapping class is removed
+   ✓ preserves existing classes and only removes htmx utility classes
+   ✓ removes empty class attribute from indicators after request completes
+
+
+test/core/api.js:
+
+ Core htmx API test [Chromium]
+   ✓ should find properly
+   ✓ should find properly from elt
+   ✓ should find all properly
+   ✓ should find all properly from elt
+   ✓ should find closest element properly
+   ✓ should remove element properly
+   ✓ remove element with delay properly
+   ✓ should remove element properly w/ selector
+   ✓ should add class properly
+   ✓ should add class properly w/ selector
+   ✓ should add class properly after delay
+   ✓ should remove class properly
+   ✓ should not error if you remove class from invalid element
+   ✓ should remove class properly w/ selector
+   ✓ should remove class properly after delay
+   ✓ should toggle class properly
+   ✓ should toggle class properly w/ selector
+   ✓ should take class properly
+   ✓ should take class properly w/ selector
+   ✓ eval can be suppressed
+   ✓ ajax api works
+   ✓ ajax api works by ID
+   ✓ ajax api does not fall back to body when target invalid
+   ✓ ajax api fails when target invalid
+   ✓ ajax api fails when target invalid even if source set
+   ✓ ajax api fails when source invalid and no target set
+   ✓ ajax api falls back to targeting source if target not set
+   ✓ ajax api falls back to targeting body if target and source not set
+   ✓ ajax api works with swapSpec
+   ✓ ajax api works with select
+   ✓ ajax api works with selectOOB
+   ✓ ajax api works with Hx-Select overrides select
+   ✓ ajax returns a promise
+   ✓ ajax api can pass parameters
+   ✓ ajax api Content-Type header is application/x-www-form-urlencoded
+   ✓ ajax api Content-Type header override to application/json
+   ✓ can re-init with new attributes
+   ✓ does not trigger load on re-init of an existing element
+   ✓ onLoad is called... onLoad
+   ✓ triggers properly
+   ✓ triggers properly w/ selector
+   ✓ triggers with no details properly
+   ✓ swaps content properly (basic)
+   ✓ swap works with a swap delay
+   ✓ swap works with a view transition
+   ✓ swaps content properly (with select)
+   ✓ swaps content properly (with oob)
+   ✓ swaps content properly (with select oob)
+   ✓ swap delete works when parent is removed
+   ✓ swap outerHTML works when parent is removed
+   ✓ values api returns formDataProxy with correct form data even if clicked button removed
+   ✓ tests for formDataProxy array updating and testing for loc coverage
+   ✓ logAll() and logNone() run without error
+   ✓ querySelectorExt internal extension api works with just string
+   ✓ ajax api with no context works
+   ✓ ajax api with can pass in custom handler and handle if it throws error
+   ✓ process api can process non elements fine
+   ✓ ajax api push Url should push an element into the cache when true
+   ✓ ajax api push Url should push an element into the cache when string
+   ✓ ajax api replace Url should replace an element into the cache when true
+   ✓ ajax api replace Url should replace an element into the cache when string
+
+ 🚧 Browser logs:
+      htmx:evalDisallowedError
+      htmx:targetError
+      htmx:targetError
+      An error was thrown in a Promise outside a test. Did you forget to await a function or assertion?
+      undefined
+      htmx:targetError
+      htmx:targetError
+      test-event HTMLDivElement: <div id="d1"></div> { elt: 'HTMLDivElement: <div id="d1"></div>' }
+      Error: throw, [object HTMLBodyElement]
+      Error: throw, [object HTMLBodyElement]
+
+
+test/core/config.js:
+
+ htmx config test [Chromium]
+   ✓ swaps normally with no config update
+   ✓ swap all config should swap everything
+   ✓ non mapped responseHandling config will not swap
+   ✓ can change the target of a given response code
+   ✓ throws targetError if you the target in responseHandling is invalid
+   ✓ can change the target to "this" in a given response code
+   ✓ can change the swap type of a given response code
+   ✓ can change the select of a given response code
+   ✓ can change if the title is ignored for a given response code
+   ✓ can change if error for a given response code
+   ✓ can trigger an event for a given response code
+
+ 🚧 Browser logs:
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      Response Status Error Code 500 from /test, [object HTMLButtonElement]
+      htmx:targetError, #a-div
+      Error: Invalid re-target #a-div, [object HTMLButtonElement]
+
+
+test/core/events.js:
+
+ Core htmx Events [Chromium]
+   ✓ htmx:load fires properly
+   ✓ htmx:configRequest allows attribute addition
+   ✓ htmx:configRequest is also dispatched in kebab-case
+   ✓ events are only dispatched once if kebab and camel case match
+   ✓ events accept an options argument and the result works as expected
+   ✓ htmx:configRequest allows attribute removal
+   ✓ htmx:configRequest allows header tweaking
+   ✓ htmx:configRequest on form gives access to submit event
+   ✓ htmx:afterSwap is called when replacing outerHTML
+   ✓ htmx:afterSwap is called when replacing outerHTML, new line content
+   ✓ htmx:oobBeforeSwap is called before swap
+   ✓ htmx:oobBeforeSwap can abort a swap
+   ✓ htmx:oobBeforeSwap is not called on an oob miss
+   ✓ htmx:oobAfterSwap is called after swap
+   ✓ htmx:oobAfterSwap is not called on an oob miss
+   ✓ htmx:afterSettle is called once when replacing outerHTML
+   ✓ htmx:afterSettle is called once when replacing outerHTML with whitespace
+   ✓ htmx:afterSettle is called twice when replacing outerHTML with whitespace separated elements
+   ✓ htmx:afterSettle is called multiple times when doing OOB outerHTML swaps
+   ✓ htmx:afterRequest is called after a successful request
+   ✓ htmx:afterOnLoad is called after a successful request
+   ✓ htmx:afterRequest is called after a failed request
+   ✓ htmx:sendError is called after a failed request
+   ✓ htmx:afterRequest is called when replacing outerHTML
+   ✓ htmx:afterOnLoad is called when replacing outerHTML
+   ✓ htmx:beforeProcessNode is called when replacing outerHTML
+   ✓ htmx:beforeProcessNode allows htmx attribute tweaking
+   ✓ htmx:afterProcessNode is called after replacing outerHTML
+   ✓ htmx:afterRequest is called when targeting a parent div
+   ✓ adding an error in htmx:configRequest stops the request
+   ✓ preventDefault() in htmx:configRequest stops the request
+   ✓ preventDefault() in the htmx:beforeRequest event cancels the request
+   ✓ preventDefault() in the htmx:beforeOnLoad event cancels the swap
+   ✓ htmx:afterRequest event contains 'successful' and 'failed' properties indicating success after successful request
+   ✓ htmx:afterRequest event contains 'successful' and 'failed' properties indicating failure after failed request
+   ✓ htmx:confirm can cancel request
+   ✓ has updated target available when target set via htmx:beforeSwap
+   ✓ htmx:beforeSwap can override swap style using evt.detail.swapOverride and has final say on it
+   ✓ preventDefault() in htmx:historyCacheMiss stops the history request
+   ✓ htmx:historyCacheMissLoad event can update history swap
+   ✓ htmx:historyCacheMiss event can set custom request headers
+   ✓ preventDefault() in htmx:historyCacheHit stops the history action
+   ✓ htmx:historyCacheHit event can update history swap
+   ✓ htmx:targetError should include the hx-target value
+   ✓ htmx:targetError can include an inherited hx-target value
+
+ 🚧 Browser logs:
+      htmx:oobErrorNoTarget, #test
+      htmx:oobErrorNoTarget, #test
+      Response Status Error Code 500 from /test, [object HTMLButtonElement]
+      htmx:afterRequest, [object HTMLButtonElement]
+      htmx:sendError, [object HTMLButtonElement]
+      Response Status Error Code 500 from /test, [object HTMLButtonElement]
+      beforeSwap HTMLDivElement: <div id="d1"></div> HTMLDivElement: <div id="d2"></div>
+      afterSwap HTMLDivElement: <div id="d2" class="htmx-settling">updated</div> HTMLDivElement: <div id="d2" class="htmx-settling">updated</div>
+      afterSwap look at me. i’m the innerHTML now.
+      htmx:targetError, #non-existent
+      htmx:targetError, #parent-target
+
+
+test/core/extension-swap.js:
+
+ default extensions behavior [Chromium]
+   ✓ handleSwap: afterSwap and afterSettle triggered if extension defined on parent
+   ✓ handleSwap: new content is handled by htmx
+
+
+test/core/extensions.js:
+
+ Core htmx extension tests [Chromium]
+   ✓ should support event cancellation by returning false
+   ✓ should support event cancellation with preventDefault
+   ✓ withExtensions catches and logs any exceptions
+   ✓ encodeParameters works as expected
+   ✓ extensionBase return expected values
+
+ 🚧 Browser logs:
+      Error: throw error to catch and log
+        at test/core/extensions.js:54:13
+        at src/htmx.js:3135:9
+        at forEach (src/htmx.js:762:9)
+        at withExtensions (src/htmx.js:3133:5)
+        at n.<anonymous> (test/core/extensions.js:53:29)
+
+
+test/core/internals.js:
+
+ Core htmx internals Tests [Chromium]
+   ✓ makeFragment works with janky stuff
+   ✓ makeFragment works with template wrapping
+   ✓ makeFragment works with template wrapping and funky combos
+   ✓ set header works with non-ASCII values
+   ✓ handles parseInterval correctly
+   ✓ tokenizes correctly
+   ✓ tags respond correctly to shouldCancel
+   ✓ unset properly unsets a given attribute
+   ✓ unset properly unsets a given attribute on a parent
+   ✓ unset does not unset a value below it in the hierarchy
+   ✓ encoding values respects enctype on forms
+   ✓ Calling onpopstate to trigger backup and restore of page triggers htmx:restored event
+   ✓ scroll position is restored from history restore
+   ✓ calling onpopstate with no htmx state not true calls original popstate
+   ✓ getPathFromResponse returns paths when valid
+   ✓ appendParam can process objects
+   ✓ handleTitle falls back to setting document.title when no title head element
+   ✓ without meta config getMetaConfig returns null
+   ✓ internalAPI settleImmediately completes settle tasks
+
+ 🚧 Browser logs:
+      htmx:badResponseUrl
+
+
+test/core/parameters.js:
+
+ Core htmx Parameter Handling [Chromium]
+   ✓ Input includes value
+   ✓ Input includes value on get
+   ✓ Input includes form
+   ✓ Input doesnt include form on get
+   ✓ non-input includes form
+   ✓ non-input doesnt include form on get
+   ✓ Basic form works on get
+   ✓ Basic form works on non-get
+   ✓ Double values are included as array
+   ✓ Double values are included as array in correct order
+   ✓ Double empty values are included as array in correct order
+   ✓ hx-include works with form
+   ✓ hx-include works with input
+   ✓ hx-include works with two inputs
+   ✓ hx-include works with two inputs, plus form
+   ✓ correctly URL escapes values
+   ✓ form includes last focused button
+   ✓ form includes last focused submit
+   ✓ form does not include button when focus is lost
+   ✓ form does not include button when focus is lost outside of form
+   ✓ form includes button name and value if button has nested elements when clicked
+   ✓ it puts GET params in the URL by default
+   ✓ it puts GET params in the body if methodsThatUseUrlParams is empty
+   ✓ it puts DELETE params in the body by default
+   ✓ it puts DELETE params in the URL if methodsThatUseUrlParams contains "delete"
+   ✓ Input within disabled fieldset is excluded
+   ✓ formdata works along web components
+   ✓ formdata works with null values
+   ✓ formdata can be used to construct a URLSearchParams instance
+   ✓ order of parameters follows order of input elements
+   ✓ order of parameters follows order of input elements with POST
+   ✓ file is correctly uploaded with file input
+   ✓ file is not uploaded with blank filename
+   ✓ file is correctly uploaded with htmx.ajax
+
+test/core/headers.js:
+
+ Core htmx AJAX headers [Chromium]
+   ✓ should include the HX-Request header
+   ✓ should include the HX-Trigger header
+   ✓ should include the HX-Trigger-Name header
+   ✓ should include the HX-Target header
+   ✓ should handle simple string HX-Trigger response header properly
+   ✓ should handle dot path HX-Trigger response header properly
+   ✓ should handle simple string HX-Trigger response header in different case properly
+   ✓ should handle a namespaced HX-Trigger response header properly
+   ✓ should handle basic JSON HX-Trigger response header properly
+   ✓ should handle JSON with array arg HX-Trigger response header properly
+   ✓ should handle JSON with object arg HX-Trigger response header properly
+   ✓ should handle JSON with target array arg HX-Trigger response header properly
+   ✓ should survive malformed JSON in HX-Trigger response header
+   ✓ should handle simple string HX-Trigger response header properly w/ outerHTML swap
+   ✓ should handle simple comma separated list HX-Trigger response header properly
+   ✓ should handle simple comma separated list without space HX-Trigger response header properly
+   ✓ should handle dot path in comma separated list HX-Trigger response header properly
+   ✓ should handle a namespaced comma separated list HX-Trigger response header properly
+   ✓ should handle HX-Retarget
+   ✓ should handle HX-Retarget override back to this
+   ✓ should handle report target:error when HX-Retarget invalid
+   ✓ should handle HX-Reswap
+   ✓ should handle HX-Reselect
+   ✓ should handle HX-Reselect unset
+   ✓ should handle simple string HX-Trigger-After-Swap response header properly w/ outerHTML swap
+   ✓ should handle simple comma separated list HX-Trigger-After-Swap response header properly w/ outerHTML swap
+   ✓ should handle simple string HX-Trigger-After-Settle response header properly w/ outerHTML swap
+   ✓ should handle simple comma separated list HX-Trigger-After-Settle response header properly w/ outerHTML swap
+   ✓ should change body content on HX-Location
+   ✓ should push new Url on HX-Location
+   ✓ should not push new Url on HX-Location if push Url false
+   ✓ should push different Url on HX-Location if push Url is string
+   ✓ should refresh page on HX-Refresh
+   ✓ should update location.href on HX-Redirect
+   ✓ request to restore history should include the HX-Request header when historyRestoreAsHxRequest true
+   ✓ request to restore history should not include the HX-Request header when historyRestoreAsHxRequest false
+   ✓ request history from server with error status code throws error event
+   ✓ request to restore history should include the HX-History-Restore-Request header
+   ✓ request to restore history should include the HX-Current-URL header
+   ✓ does not crash or fire trigger when X-HX-Trigger header is present without HX-Trigger
+
+ 🚧 Browser logs:
+      Response Status Error Code 404 from /test, [object HTMLButtonElement]
+      SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+        SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+        at JSON.parse (<anonymous>)
+        at parseJSON (src/htmx.js:816:19)
+        at handleTriggerHeader (src/htmx.js:2125:24)
+        at handleAjaxResponse (src/htmx.js:4864:7)
+        at xhr.onload (src/htmx.js:4624:9)
+        at FakeXMLHttpRequest.<anonymous> (node_modules/sinon/pkg/node_modules/nise/lib/fake-xhr/index.js:77:0)
+        at node_modules/sinon/pkg/node_modules/nise/lib/event/event-target.js:112:0
+        at Array.forEach (<anonymous>)
+        at FakeXMLHttpRequest.dispatchEvent (node_modules/sinon/pkg/node_modules/nise/lib/event/event-target.js:109:0)
+        at FakeXMLHttpRequest.readyStateChange (node_modules/sinon/pkg/node_modules/nise/lib/fake-xhr/index.js:553:0)
+      htmx:targetError, #d2
+      Error: Invalid re-target #d2, [object HTMLDivElement]
+      htmx:historyCacheMissLoadError
+
+
+test/core/perf.js:
+
+ Core htmx perf Tests [Chromium]
+   ✓ history implementation should be fast
+   ✓ history snapshot cleaning should be fast
+
+
+test/core/security.js:
+
+ security options [Chromium]
+   ✓ can disable a single elt
+   ✓ can disable a parent elt
+   ✓ can disable a child elt
+   ✓ can disable a single elt dynamically
+   ✓ can disable a single elt dynamically & enable it back
+   ✓ can disable a single a tag dynamically & enable it back with boost
+   ✓ can disable a single parent elt dynamically
+   ✓ can disable a single parent elt dynamically & enable it back
+   ✓ can make egress cross site requests when htmx.config.selfRequestsOnly is disabled
+   ✓ can make a real local data uri request when selfRequestOnly false
+   ✓ can disable hx-on on a single elt
+   ✓ can disable hx-on on a parent elt
+   ✓ can disable hx-on on a single elt dynamically
+   ✓ can disable hx-on on a parent elt dynamically
+   ✓ can't make egress cross site requests when htmx.config.selfRequestsOnly is true
+   ✓ can cancel egress request based on htmx:validateUrl event
+   ✓ can cancel egress request based on htmx:validateUrl event, sameHost is false
+   ✓ can cancel egress request based on htmx:validateUrl event and then allow a request
+   ✓ can disable script tag support with htmx.config.allowScriptTags
+
+ 🚧 Browser logs:
+      htmx:afterRequest, [object HTMLButtonElement]
+      htmx:sendError, [object HTMLButtonElement]
+      htmx:invalidPath, [object HTMLButtonElement]
+      htmx:invalidPath, [object HTMLButtonElement]
+      htmx:invalidPath, [object HTMLButtonElement]
+      htmx:invalidPath, [object HTMLButtonElement]
+
+
+test/core/shadowdom.js:
+
+ Core htmx Shadow DOM Tests [Chromium]
+   ✓ properly retrieves shadow root for extended selector
+   ✓ properly escapes shadow root for extended selector
+   ✓ properly retrives shadow root host for extended selector
+   ✓ issues a GET request on click and swaps content
+   ✓ processes inner content properly
+   ✓ handles swap outerHTML properly
+   ✓ handles beforebegin properly
+   ✓ handles afterbegin properly
+   ✓ handles afterbegin properly with no initial content
+   ✓ handles afterend properly
+   ✓ handles beforeend properly
+   ✓ handles beforeend properly with no initial content
+   ✓ handles hx-target properly
+   ✓ handles 204 NO CONTENT responses properly
+   ✓ handles 304 NOT MODIFIED responses properly
+   ✓ handles hx-trigger with non-default value
+   ✓ handles hx-trigger with load event
+   ✓ sets the content type of the request properly
+   ✓ issues two requests when clicked twice before response
+   ✓ issues two requests when clicked three times before response
+   ✓ properly handles hx-select for basic situation
+   ✓ properly handles hx-select for full html document situation
+   ✓ properly settles attributes on interior elements
+   ✓ properly settles attributes elements with single quotes in id
+   ✓ properly settles attributes elements with double quotes in id
+   ✓ properly handles multiple select input
+   ✓ properly handles multiple select input when "multiple" attribute is empty string
+   ✓ properly handles two multiple select inputs w/ same name
+   ✓ properly handles multiple email input
+   ✓ properly handles checkbox inputs
+   ✓ text nodes dont screw up settling via variable capture
+   ✓ script nodes evaluate
+   ✓ stand alone script nodes evaluate
+   ✓ script nodes can define global functions
+   ✓ child script nodes evaluate when children
+   ✓ child script nodes evaluate when first child
+   ✓ child script nodes evaluate when not explicitly marked javascript
+   ✓ script nodes do not evaluate when explicitly marked as something other than javascript
+   ✓ script nodes evaluate after swap
+   - script node exceptions do not break rendering
+   ✓ allows empty verb values
+   ✓ allows blank verb values
+   ✓ input values are not settle swapped (causes flicker)
+   ✓ autofocus attribute works properly
+   ✓ autofocus attribute works properly w/ child
+   ✓ autofocus attribute works properly w/ true value
+   ✓ multipart/form-data encoding works
+   ✓ removed elements do not issue requests
+   ✓ title tags update title
+   ✓ svg title tags do not update title
+   ✓ first title tag outside svg title tags updates title
+   ✓ title update does not URL escape
+   ✓ by default 400 content is not swapped
+   ✓ 400 content can be swapped if configured to do so
+   ✓ 400 content can be retargeted if configured to do so
+   ✓ errors are triggered only on 400+
+   ✓ content can be modified if configured to do so
+   - scripts w/ src attribute are properly loaded
+   ✓ should load tags with colon in their names
+   ✓ properly handles clicked submit button with a value inside a htmx form
+   ✓ properly handles clicked submit input with a value inside a htmx form
+   ✓ properly handles clicked submit button with a value inside a non-htmx form
+   ✓ properly handles clicked submit input with a value inside a non-htmx form
+   ✓ properly handles clicked submit button with a value outside a htmx form
+   ✓ properly handles clicked submit input with a value outside a htmx form
+   ✓ properly handles clicked submit button with a value stacking with regular input
+   ✓ properly handles clicked submit input with a value stacking with regular input
+   ✓ properly handles clicked submit button with a value inside a form, referencing another form
+   ✓ properly handles clicked submit input with a value inside a form, referencing another form
+   ✓ properly handles inputs external to form
+   ✓ properly handles buttons with formmethod=dialog
+   ✓ can associate submit buttons from outside a form with the current version of the form after swap
+   ✓ can handle basic events w/ no other attributes
+   ✓ can handle basic events w/ no other attributes in child
+   ✓ can target shadow DOM Host and place content below web component
+   ✓ can target global id outside shadow DOM and place content
+   ✓ can target shadow DOM Host with outerHTML swap and replace it
+   ✓ hx-sync works properly in shadow DOM
+   ✓ can abort a request programmatically in shadow DOM
+   ✓ hx-sync abort strategy works in shadow DOM
+
+ 🚧 Browser logs:
+      Here...
+      Response Status Error Code 404 from http://localhost:8000/?wtr-session-id=0UUDYHavTVhAaWu_bih93, [object HTMLDivElement]
+      Response Status Error Code 404 from http://localhost:8000/?wtr-session-id=0UUDYHavTVhAaWu_bih93, [object HTMLDivElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLDivElement]
+      Response Status Error Code 400 from /test2, [object HTMLButtonElement]
+      Response Status Error Code 400 from /test, [object HTMLButtonElement]
+      htmx:afterRequest, [object HTMLButtonElement]
+      htmx:sendAbort, [object HTMLButtonElement]
+      htmx:afterRequest, [object HTMLButtonElement]
+      htmx:sendAbort, [object HTMLButtonElement]
+
+
+test/core/tokenizer.js:
+
+ Core htmx tokenizer tests [Chromium]
+   ✓ tokenizes properly
+   ✓ generates conditionals property
+
+
+test/core/regressions.js:
+
+ Core htmx Regression Tests [Chromium]
+   ✓ SVGs process properly in IE11
+   ✓ Handles https://github.com/bigskysoftware/htmx/issues/4 properly
+   ✓ Handles https://github.com/bigskysoftware/htmx/issues/33 "empty values" properly
+   ✓ name=id doesnt cause an error
+   ✓ empty id doesnt cause an error
+   ✓ id with dot in value doesnt cause an error
+   ✓ @ symbol in attributes does not break requests
+   ✓ @ symbol in attributes does not break attribute settling requests
+   ✓ selected element with ID does not cause NPE when it disappears
+   ✓ does not submit with a false condition on a form
+   ✓ two elements can listen for the same event on another element
+   ✓ a form can reset based on the htmx:afterRequest event
+   ✓ supports image maps
+   ✓ supports unset on hx-select
+   ✓ can trigger swaps from fields that don't support setSelectionRange
+   ✓ script tags only execute once
+   ✓ script tags only execute once when nested
+   ✓ htmx.config.allowScriptTags properly disables script tags
+   ✓ htmx.config.allowScriptTags properly disables script tags when nested
+   ✓ a modified click trigger on a form does not prevent the default behaviour of other elements - https://github.com/bigskysoftware/htmx/issues/2755
+   ✓ swap=outerHTML clears htmx-swapping class when old node has a style attribute and no class
+   ✓ swap=outerHTML won't carry over user-defined classes when old node has a style attribute before the class attribute
+   ✓ a button clicked inside an htmx enabled link will prevent the link from navigating on click
+   ✓ a htmx enabled button clicked inside a link will prevent the link from navigating on click
+   ✓ a htmx enabled button containing sub elements will prevent the button submitting a form
+   ✓ a htmx enabled element inside a form button will prevent the button submitting a form
+   ✓ from: trigger on form prevents default form submission
+   ✓ from: trigger on button prevents default form submission
+   ✓ from: trigger on link prevents default navigation
+   ✓ check deleting button during click does not trigger exception error in getRelatedFormData when button can no longer find form
+
+ 🚧 404 network requests:
+    - img/bars.svg
+
+
+test/core/validation.js:
+
+ Core htmx client side validation tests [Chromium]
+   ✓ HTML5 required validation error prevents request
+   ✓ Novalidate skips form validation
+   ✓ Validation skipped for indirect form submission
+   ✓ Formnovalidate skips form validation
+   ✓ HTML5 pattern validation error prevents request
+   ✓ Custom validation error prevents request
+   ✓ Custom validation error prevents request for unticked checkboxes
+   ✓ Custom validation error prevents request for unselected radiogroups
+   ✓ hyperscript validation error prevents request
+   ✓ calls htmx:validation:failed on failure
+   ✓ foucuses on first invalid input and reports error to user when reportValidityOfForms true
+   ✓ no focus on first invalid input or report errors when reportValidityOfForms false
+   ✓ can prevent reportValidity with preventDefault when reportValidityOfForms true
+   ✓ calls htmx:validation:halted on failure
+   ✓ hx-validate can prevent a single input from submitting
+
+
+test/core/verbs.js:
+
+ Core htmx AJAX Verbs [Chromium]
+   ✓ handles basic posts properly
+   ✓ handles basic put properly
+   ✓ handles basic patch properly
+   ✓ handles basic delete properly
+
+Chromium: |██████████████████████████████| 51/51 test files | 870 passed, 0 failed, 3 skipped
+
+Calculating code coverage...
+
+Chromium: |██████████████████████████████| 51/51 test files | 870 passed, 0 failed, 3 skipped
+
+Code coverage: 99.9 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 22.7s, all tests passed! 🎉

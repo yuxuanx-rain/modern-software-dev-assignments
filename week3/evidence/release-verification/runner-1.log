@@ -1,0 +1,18 @@
+✓ swap outerHTML does not trigger htmx:afterSwap on original element
+   ✓ swap delete works properly
+   ✓ in presence of bad swap spec, it uses the default swap strategy
+   ✓ hx-swap ignoreTitle works
+   ✓ swapError fires if swap throws exception
+
+ 🚧 Browser logs:
+      Unknown modifier in hx-swap: nonsense
+      Unknown modifier in hx-swap: nonsense
+      htmx:swapError, [object HTMLDivElement]
+      Error: throw, [object HTMLDivElement]
+
+Chromium: |██████████████████████████████| 1/1 test files | 32 passed, 0 failed
+
+Code coverage: 65.4 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 1.5s, all tests passed! 🎉

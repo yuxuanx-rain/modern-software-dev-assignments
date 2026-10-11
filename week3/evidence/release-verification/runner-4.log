@@ -1,0 +1,19 @@
+Chromium: |██████████████████████████████| 0/1 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 1 test files...
+
+
+test/attributes/week3-swap-none-oob-repro.js:
+
+ week3 – hx-swap=none with oob response (corrected) [Chromium]
+   ✓ with hx-swap=none: result stays unchanged, status oob-swaps to Ready
+   ✓ with hx-swap=innerHTML: result shows Loaded and status oob-swaps to Ready
+
+Chromium: |██████████████████████████████| 1/1 test files | 2 passed, 0 failed
+
+Code coverage: 56.74 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 1s, all tests passed! 🎉

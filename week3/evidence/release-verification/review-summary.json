@@ -1,0 +1,20 @@
+{
+  "findings": [
+    "First review left an intentionally failing original inside the active test glob while copying its snapshot elsewhere.",
+    "First review overstated hx-swap=none as suppressing all DOM updates."
+  ],
+  "changes": [
+    "Explicitly move the failing original outside test discovery.",
+    "Distinguish primary swaps from out-of-band updates."
+  ],
+  "final_skill_sha256": "c028cbdec153e41d4994e9963cb7bac6194775e1384c808c3b1e1e331ce74ca6",
+  "release_result": {
+    "automatic_skill_invocations": 1,
+    "original": "0 passed, 1 failed",
+    "corrected": "2 passed, 0 failed",
+    "adjacent": "68 passed, 0 failed",
+    "full_browser_suite": "870 passed, 0 failed, 3 skipped",
+    "lint": "4 initial formatting errors; corrected; final exit 0",
+    "tracked_htmx_changes": false
+  }
+}
