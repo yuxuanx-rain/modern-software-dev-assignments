@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>htmx · 点击之后发生了什么？</title>
+<script src="/htmx.js"></script>
+<style>
+:root{font-family:system-ui,sans-serif;color:#213a4b;background:#eef5fa}*{box-sizing:border-box}body{margin:0;padding:48px 24px}main{max-width:1060px;margin:auto}header{max-width:720px;margin-bottom:32px}.eyebrow{font:600 12px ui-monospace,monospace;letter-spacing:.13em;color:#436b88}h1{font-size:clamp(28px,4vw,44px);line-height:1.25;letter-spacing:-.04em;margin:15px 0}p{line-height:1.8;color:#4c6679}.examples{display:grid;grid-template-columns:1fr 1fr;gap:24px}.example{background:#fff;border:1px solid #c9dce9;border-radius:16px;padding:28px}.tag{font-size:13px;font-weight:650;color:#18685b}.broken .tag{color:#b44d37}h2{font-size:23px;margin:15px 0}button{background:#245a7f;color:#fff;border:0;border-radius:8px;font:inherit;padding:12px 18px;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #d59c36;outline-offset:4px}.result{margin-top:22px;background:#f1f6f9;border:1px dashed #a8c0d0;min-height:98px;border-radius:8px;padding:20px;display:flex;flex-direction:column;justify-content:center;gap:8px}.result small{font-size:12px;color:#6b8392}.trace{padding-left:0;list-style:none;font:12px ui-monospace,monospace;color:#526c7c;min-height:70px;line-height:1.8;overflow-wrap:anywhere}.explanation{margin-top:18px;font-size:14px;border-top:1px solid #e0eaf0;padding-top:16px}footer{margin-top:28px;font-size:13px;color:#627989}a{color:#245a7f}@media(max-width:650px){body{padding:28px 16px}.examples{grid-template-columns:1fr}.example{padding:22px}}
+</style>
+<main>
+<header><div class="eyebrow">CS146S · WEEK 3 · HTMX</div><h1>同一个按钮，<br>为什么一边有结果，一边没有？</h1><p>分别点击下面两个按钮。我们要做的 Skill，就是让 AI 按证据检查这种问题，然后验证修正是否有效。</p></header>
+<div class="examples">
+<section class="example"><span class="tag">正常的例子</span><h2>查看天气</h2><p>按钮指向页面中存在的天气区域。</p><button id="working" hx-get="/weather" hx-target="#working-result">查看天气</button><div id="working-result" class="result" aria-live="polite">还没有查询</div><ul id="working-trace" class="trace" aria-live="polite"><li>等待点击</li></ul><div class="explanation">点击 → 发出请求 → 收到内容 → 更新天气区域</div></section>
+<section class="example broken"><span class="tag">需要检查的例子</span><h2>查看天气</h2><p>按钮指向一个不存在的天气区域。</p><button id="broken" hx-get="/weather" hx-target="#missing-result">查看天气</button><div id="broken-result" class="result" aria-live="polite">还没有查询</div><ul id="broken-trace" class="trace" aria-live="polite"><li>等待点击</li></ul><div class="explanation">点击 → 找不到目标区域 → 报错，未发出请求</div></section>
+</div>
+<footer>人为构造的配置错误，不是已发现的 htmx 缺陷。天气为本地固定示例数据。<a href="/">重新开始</a></footer>
+</main>
+<script>
+window.trace=[];
+for(const name of ['htmx:targetError','htmx:beforeRequest','htmx:afterRequest','htmx:afterSwap','htmx:responseError']){
+ document.body.addEventListener(name,event=>{
+  const detail=event.detail; const button=detail.elt?.closest('button') || (event.target.matches('button')?event.target:null);
+  const source=button?.id || (event.target.id==='working-result'?'working':null);
+  const entry={event:name,source,status:detail.xhr?.status??null};window.trace.push(entry);
+  const list=document.getElementById(source+'-trace');if(list){if(list.textContent==='等待点击')list.innerHTML='';const li=document.createElement('li');li.textContent=name+(entry.status?' · HTTP '+entry.status:'');list.append(li)}
+ });
+}
+</script>
+</html>
