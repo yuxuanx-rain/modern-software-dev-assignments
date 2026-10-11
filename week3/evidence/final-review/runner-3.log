@@ -1,0 +1,19 @@
+Chromium: |██████████████████████████████| 0/1 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 1 test files...
+
+
+test/attributes/week3-swap-none-corrected.js:
+
+ week3: hx-swap="none" with hx-target — corrected [Chromium]
+   ✓ corrected: #result shows "Loaded" after click (hx-swap="none" removed, default innerHTML used)
+   ✓ confirmed: hx-swap="none" explicitly suppresses swap regardless of target or response
+
+Chromium: |██████████████████████████████| 1/1 test files | 2 passed, 0 failed
+
+Code coverage: 56.05 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 1.1s, all tests passed! 🎉

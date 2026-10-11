@@ -1,0 +1,8 @@
+Investigate this constructed htmx interaction report in the current checkout.
+HTML: <div id="result">Empty</div><button hx-get="/fragment" hx-target="#result" hx-swap="none">Load</button>
+Server response: HTTP 200, Content-Type: text/html, body exactly "Loaded".
+Action: click Load.
+Expected: #result displays Loaded.
+Actual: #result remains Empty.
+
+Execute the diagnosis end to end. Establish the relevant native test baseline, create a minimal browser reproduction of the expectation, retain its actual failing output, test a hypothesis with the smallest appropriate local correction, and verify the corrected case and adjacent existing tests. Save fixtures and actual command outputs in final-review-artifacts. You may create local files and run browser tests, but do not edit library source or global configuration, publish anything, or use external endpoints. Report what actually happened and classify the cause from evidence.

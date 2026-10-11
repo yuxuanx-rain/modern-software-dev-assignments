@@ -1,0 +1,22 @@
+[
+  {
+    "command": "npx web-test-runner --files test/attributes/hx-swap.js --browsers chromium --playwright 2>&1",
+    "is_error": false,
+    "output_file": "runner-1.log"
+  },
+  {
+    "command": "npx web-test-runner --files test/attributes/week3-swap-none-repro.js --browsers chromium --playwright 2>&1",
+    "is_error": true,
+    "output_file": "runner-2.log"
+  },
+  {
+    "command": "npx web-test-runner --files test/attributes/week3-swap-none-corrected.js --browsers chromium --playwright 2>&1",
+    "is_error": false,
+    "output_file": "runner-3.log"
+  },
+  {
+    "command": "npx web-test-runner --files test/attributes/hx-swap.js test/attributes/week3-swap-none-corrected.js --browsers chromium --playwright 2>&1",
+    "is_error": false,
+    "output_file": "runner-4.log"
+  }
+]

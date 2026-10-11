@@ -1,0 +1,55 @@
+Chromium: |██████████████████████████████| 0/1 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 1 test files...
+
+
+test/attributes/hx-swap.js:
+
+ hx-swap attribute [Chromium]
+   ✓ swap innerHTML properly
+   ✓ swap textContent properly with HTML tags
+   ✓ swap textContent properly with HTML tags and text
+   ✓ swap textContent ignores OOB swaps
+   ✓ swap textContent properly with text
+   ✓ swap outerHTML properly
+   ✓ swap outerHTML on body falls back to innerHTML properly
+   ✓ swap beforebegin properly
+   ✓ swap afterbegin properly
+   ✓ swap afterbegin properly with no initial content
+   ✓ swap afterend properly
+   ✓ handles beforeend properly
+   ✓ handles beforeend properly with no initial content
+   ✓ properly parses various swap specifications
+   ✓ works with a swap delay
+   ✓ works immediately with no swap delay
+   ✓ works with transition:true
+   ✓ works with a settle delay
+   ✓ works with no settle delay
+   ✓ works with scroll:top
+   ✓ works with scroll:bottom
+   ✓ works with show:top
+   ✓ works with show:bottom
+   ✓ works with show:window:bottom
+   ✓ works with focus-scroll:true
+   ✓ swap outerHTML properly  w/ data-* prefix
+   ✓ swap none works properly
+   ✓ swap outerHTML does not trigger htmx:afterSwap on original element
+   ✓ swap delete works properly
+   ✓ in presence of bad swap spec, it uses the default swap strategy
+   ✓ hx-swap ignoreTitle works
+   ✓ swapError fires if swap throws exception
+
+ 🚧 Browser logs:
+      Unknown modifier in hx-swap: nonsense
+      Unknown modifier in hx-swap: nonsense
+      htmx:swapError, [object HTMLDivElement]
+      Error: throw, [object HTMLDivElement]
+
+Chromium: |██████████████████████████████| 1/1 test files | 32 passed, 0 failed
+
+Code coverage: 65.4 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 1.5s, all tests passed! 🎉
