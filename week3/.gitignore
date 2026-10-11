@@ -1,0 +1,3 @@
+*.local.json
+*.raw.jsonl
+*.raw.log
