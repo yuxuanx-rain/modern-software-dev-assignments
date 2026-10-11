@@ -1,0 +1,32 @@
+{
+  "desktop": {
+    "working": "Sunny · 22°CLocal example data",
+    "broken": "还没有查询",
+    "trace": [
+      {
+        "event": "htmx:beforeRequest",
+        "source": "working",
+        "status": 0
+      },
+      {
+        "event": "htmx:afterSwap",
+        "source": "working",
+        "status": 200
+      },
+      {
+        "event": "htmx:afterRequest",
+        "source": "working",
+        "status": 200
+      },
+      {
+        "event": "htmx:targetError",
+        "source": "broken",
+        "status": null
+      }
+    ],
+    "overflow": false
+  },
+  "weatherRequestsOnDesktop": 1,
+  "mobileOverflow": false,
+  "checksPassed": true
+}

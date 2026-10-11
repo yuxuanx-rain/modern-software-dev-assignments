@@ -1,0 +1,6 @@
+[
+  {"id":"trigger-1","expected":true,"prompt":"My hx-get button does nothing. The HTML is <button hx-get=\"/weather\" hx-target=\"#absent\">Check weather</button><div id=\"weather-result\">Not queried</div>. Clicking should show Sunny 22C in the div, but it stays unchanged. Help me reproduce and diagnose the interaction. For this initial response, outline how you will investigate; do not edit files or run commands."},
+  {"id":"trigger-2","expected":true,"prompt":"My htmx form submits but the result stays empty. It uses hx-post=\"/signup\" and hx-target=\"#result\"; the server returns HTTP 422 with an HTML validation message. Please investigate why the message is not displayed. For this initial response, outline how you will investigate; do not edit files or run commands."},
+  {"id":"trigger-3","expected":true,"prompt":"A response arrives but htmx does not swap it. My Load button has hx-get=\"/fragment\" and hx-target=\"#result\". The server returns HTTP 204, while I expect the result panel to display Loaded. Reproduce and diagnose this behavior. For this initial response, outline how you will investigate; do not edit files or run commands."},
+  {"id":"near-miss","expected":false,"prompt":"What is hx-target in htmx? Explain how it differs from hx-swap, with a small HTML example."}
+]

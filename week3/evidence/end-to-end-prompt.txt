@@ -1,0 +1,9 @@
+In this htmx checkout, investigate this constructed application report:
+
+HTML: <div id="result">Empty</div><button hx-get="/fragment" hx-target="#result">Load</button>
+Server response: HTTP 204, Content-Type: text/html, body: Loaded.
+Action: click Load.
+Expected: the result panel says Loaded.
+Actual: the panel remains Empty.
+
+Run the diagnosis end to end: inspect relevant existing tests and docs, establish a baseline, create a minimal native browser reproduction, record the failing expected-behavior assertion, investigate a hypothesis, then propose and verify the smallest appropriate local correction. Keep the original and corrected reproduction files and logs under week3-e2e-artifacts in this checkout. Verify adjacent existing tests afterward. You may create local test and evidence files; do not change library source or global configuration. Do not publish anything or contact external endpoints. Classify the result from evidence and report exact commands and outcomes.

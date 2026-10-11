@@ -1,0 +1,3 @@
+
+> htmx.org@2.0.11 lint
+> eslint src/htmx.js test/attributes/ test/core/ test/util/ scripts/*.mjs

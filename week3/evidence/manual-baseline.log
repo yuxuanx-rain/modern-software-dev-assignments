@@ -1,0 +1,38 @@
+
+Chromium: |██████████████████████████████| 0/1 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 1 test files...
+
+
+test/attributes/hx-target.js:
+
+ hx-target attribute [Chromium]
+   ✓ targets an adjacent element properly
+   ✓ targets a parent element properly
+   ✓ targets a `this` element properly
+   ✓ targets a `closest` element properly
+   ✓ targets a `closest` element properly w/ hyperscript syntax
+   ✓ targets a `find` element properly
+   ✓ targets a `find` element properly w/ hyperscript syntax
+   ✓ targets an inner element properly
+   ✓ targets an inner element properly w/ hyperscript syntax
+   ✓ handles bad target gracefully
+   ✓ targets an adjacent element properly w/ data-* prefix
+   ✓ targets a `next` element properly
+   ✓ targets a `next` element properly w/ hyperscript syntax
+   ✓ targets a `previous` element properly
+   ✓ targets a `previous` element properly w/ hyperscript syntax
+   ✓ targets a `next` element properly without selector
+   ✓ targets a `previous` element properly without selector
+
+ 🚧 Browser logs:
+      htmx:targetError, bad
+
+Chromium: |██████████████████████████████| 1/1 test files | 17 passed, 0 failed
+
+Code coverage: 60.42 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 5.7s, all tests passed! 🎉

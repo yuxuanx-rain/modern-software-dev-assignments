@@ -1,0 +1,60 @@
+{
+  "prompt": "What is hx-target in htmx? Explain how it differs from hx-swap, with a small HTML example.",
+  "summary": {
+    "case": "near-miss",
+    "round": "initial",
+    "expected_invocation": false,
+    "observed_invocation": false,
+    "skill_calls": 0,
+    "completed_without_error": true,
+    "matches_expected": true,
+    "transcript": "near-miss-initial.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 12317
+  },
+  "events": [
+    {
+      "type": "init",
+      "model": "claude-sonnet-4-6",
+      "claude_code_version": "2.1.163",
+      "skills": [
+        "htmx-interaction-diagnosis",
+        "deep-research",
+        "design-sync",
+        "update-config",
+        "verify",
+        "debug",
+        "code-review",
+        "simplify",
+        "batch",
+        "fewer-permission-prompts",
+        "loop",
+        "schedule",
+        "claude-api",
+        "run",
+        "run-skill-generator"
+      ],
+      "tools": [
+        "Skill"
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "## `hx-target` vs `hx-swap`\n\nThese two attributes control **where** and **how** a response gets placed — they answer different questions.\n\n| Attribute | Question answered | Default |\n|-----------|------------------|---------|\n| `hx-target` | **Which element** receives the response? | The element that triggered the request |\n| `hx-swap` | **How** is the content inserted into that element? | `innerHTML` |\n\n---\n\n### `hx-target`\n\nSelects the DOM element that will be updated. Accepts a CSS selector, or the special values `this`, `closest <selector>`, `next <selector>`, `previous <selector>`.\n\n### `hx-swap`\n\nControls the swap strategy on the **target** element. Common values:\n\n- `innerHTML` — replace the target's inner content (default)\n- `outerHTML` — replace the target element itself\n- `beforeend` — append inside the target, after its last child\n- `afterend` — insert after the target element in the DOM\n- `none` — don't swap anything (useful for side-effect-only requests)\n\n---\n\n### Example\n\n```html\n<!-- Clicking this button fetches /results and puts the response\n     into #output, replacing its inner content. -->\n<button\n  hx-get=\"/results\"\n  hx-target=\"#output\"\n  hx-swap=\"innerHTML\"\n>\n  Load Results\n</button>\n\n<div id=\"output\">\n  Results will appear here.\n</div>\n```\n\nWithout `hx-target`, the response would replace the button's own `innerHTML`. Without `hx-swap`, htmx defaults to `innerHTML` on whatever the target is.\n\n---\n\n### A more interesting combination\n\n```html\n<!-- Appends each new item to a list rather than replacing it -->\n<button\n  hx-post=\"/add-item\"\n  hx-target=\"#item-list\"\n  hx-swap=\"beforeend\"\n>\n  Add Item\n</button>\n\n<ul id=\"item-list\">\n  <li>Existing item</li>\n</ul>\n```\n\nHere `hx-target` points at the `<ul>`, and `hx-swap=\"beforeend\"` appends the server's `<li>` response inside it rather than wiping the list.\n\n**Summary:** think of `hx-target` as *aim* and `hx-swap` as *how to fire*."
+        }
+      ]
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "result": "## `hx-target` vs `hx-swap`\n\nThese two attributes control **where** and **how** a response gets placed — they answer different questions.\n\n| Attribute | Question answered | Default |\n|-----------|------------------|---------|\n| `hx-target` | **Which element** receives the response? | The element that triggered the request |\n| `hx-swap` | **How** is the content inserted into that element? | `innerHTML` |\n\n---\n\n### `hx-target`\n\nSelects the DOM element that will be updated. Accepts a CSS selector, or the special values `this`, `closest <selector>`, `next <selector>`, `previous <selector>`.\n\n### `hx-swap`\n\nControls the swap strategy on the **target** element. Common values:\n\n- `innerHTML` — replace the target's inner content (default)\n- `outerHTML` — replace the target element itself\n- `beforeend` — append inside the target, after its last child\n- `afterend` — insert after the target element in the DOM\n- `none` — don't swap anything (useful for side-effect-only requests)\n\n---\n\n### Example\n\n```html\n<!-- Clicking this button fetches /results and puts the response\n     into #output, replacing its inner content. -->\n<button\n  hx-get=\"/results\"\n  hx-target=\"#output\"\n  hx-swap=\"innerHTML\"\n>\n  Load Results\n</button>\n\n<div id=\"output\">\n  Results will appear here.\n</div>\n```\n\nWithout `hx-target`, the response would replace the button's own `innerHTML`. Without `hx-swap`, htmx defaults to `innerHTML` on whatever the target is.\n\n---\n\n### A more interesting combination\n\n```html\n<!-- Appends each new item to a list rather than replacing it -->\n<button\n  hx-post=\"/add-item\"\n  hx-target=\"#item-list\"\n  hx-swap=\"beforeend\"\n>\n  Add Item\n</button>\n\n<ul id=\"item-list\">\n  <li>Existing item</li>\n</ul>\n```\n\nHere `hx-target` points at the `<ul>`, and `hx-swap=\"beforeend\"` appends the server's `<li>` response inside it rather than wiping the list.\n\n**Summary:** think of `hx-target` as *aim* and `hx-swap` as *how to fire*.",
+      "duration_ms": 12317,
+      "num_turns": 1
+    }
+  ],
+  "sanitization": "Local absolute paths replaced with placeholders; telemetry, session metadata, thinking events, and system environment omitted. Public/generated tool content and visible answers retained."
+}

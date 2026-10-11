@@ -1,0 +1,45 @@
+
+Chromium: |██████████████████████████████| 0/1 test files | 0 passed, 0 failed
+
+Running tests...
+
+Running 1 test files...
+
+
+test/attributes/week3-target-repro.js:
+
+ Week 3 manual target reproduction [Chromium]
+   𐄂 updates the weather result after clicking
+
+ 🚧 Browser logs:
+      htmx:targetError, #missing-result
+
+ ❌ Week 3 manual target reproduction > updates the weather result after clicking
+      AssertionError: expected 'Not queried' to equal 'Sunny 22C'
+      + expected - actual
+
+      -Not queried
+      +Sunny 22C
+
+      at n.<anonymous> (test/attributes/week3-target-repro.js:17:31)
+
+
+
+Errors Reported in Tests:
+
+
+ ❌ Week 3 manual target reproduction > updates the weather result after clicking
+      AssertionError: expected 'Not queried' to equal 'Sunny 22C'
+      + expected - actual
+
+      -Not queried
+      +Sunny 22C
+
+      at n.<anonymous> (test/attributes/week3-target-repro.js:17:31)
+
+Chromium: |██████████████████████████████| 1/1 test files | 0 passed, 1 failed
+
+Code coverage: 43.93 %
+View full coverage report at coverage/lcov-report/index.html
+
+Finished running tests in 1.1s with 1 failed tests.

@@ -1,0 +1,98 @@
+[
+  {
+    "case": "trigger-1",
+    "round": "initial",
+    "expected_invocation": true,
+    "observed_invocation": true,
+    "skill_calls": 6,
+    "completed_without_error": false,
+    "matches_expected": true,
+    "transcript": "trigger-1-initial.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 58341
+  },
+  {
+    "case": "trigger-2",
+    "round": "initial",
+    "expected_invocation": true,
+    "observed_invocation": false,
+    "skill_calls": 0,
+    "completed_without_error": true,
+    "matches_expected": false,
+    "transcript": "trigger-2-initial.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 18274
+  },
+  {
+    "case": "trigger-3",
+    "round": "initial",
+    "expected_invocation": true,
+    "observed_invocation": true,
+    "skill_calls": 1,
+    "completed_without_error": true,
+    "matches_expected": true,
+    "transcript": "trigger-3-initial.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 30461
+  },
+  {
+    "case": "near-miss",
+    "round": "initial",
+    "expected_invocation": false,
+    "observed_invocation": false,
+    "skill_calls": 0,
+    "completed_without_error": true,
+    "matches_expected": true,
+    "transcript": "near-miss-initial.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 12317
+  },
+  {
+    "case": "trigger-1",
+    "round": "final",
+    "expected_invocation": true,
+    "observed_invocation": true,
+    "skill_calls": 1,
+    "completed_without_error": true,
+    "matches_expected": true,
+    "transcript": "trigger-1.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 42995
+  },
+  {
+    "case": "trigger-2",
+    "round": "final",
+    "expected_invocation": true,
+    "observed_invocation": true,
+    "skill_calls": 1,
+    "completed_without_error": true,
+    "matches_expected": true,
+    "transcript": "trigger-2.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 34181
+  },
+  {
+    "case": "trigger-3",
+    "round": "final",
+    "expected_invocation": true,
+    "observed_invocation": true,
+    "skill_calls": 1,
+    "completed_without_error": true,
+    "matches_expected": true,
+    "transcript": "trigger-3.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 40653
+  },
+  {
+    "case": "near-miss",
+    "round": "final",
+    "expected_invocation": false,
+    "observed_invocation": false,
+    "skill_calls": 0,
+    "completed_without_error": true,
+    "matches_expected": true,
+    "transcript": "near-miss.json",
+    "model": "claude-sonnet-4-6",
+    "duration_ms": 9454
+  }
+]
