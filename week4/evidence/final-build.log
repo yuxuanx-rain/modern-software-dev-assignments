@@ -1,0 +1,15 @@
+
+> dayjs@0.0.0-development build
+> cross-env BABEL_ENV=build node build && npm run size
+
+Entry module "src/locale/ku.js" is using named and default exports together. Consumers of your bundle will have to use `dayjs_locale_ku["default"]` to access the default export, which may not be what you want. Use `output.exports: "named"` to disable this warning
+
+> dayjs@0.0.0-development size
+> size-limit && gzip-size dayjs.min.js
+
+
+  Package size: 2.79 KB
+  Size limit:   2.99 KB
+  With all dependencies, minified and gzipped
+
+3.04 kB

@@ -1,0 +1,4 @@
+
+> dayjs@0.0.0-development lint
+> ./node_modules/.bin/eslint src/* test/* build/*
+

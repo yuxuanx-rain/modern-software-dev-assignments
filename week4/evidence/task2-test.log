@@ -1,0 +1,13 @@
+(node:72280) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS test/plugin/isLeapYear.test.js
+  ✓ IsLeapYear (2ms)
+  ✓ recognizes ordinary leap years and common years
+  ✓ applies the century exception across different centuries
+  ✓ does not mutate the date when checking leap-year status
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        0.5s, estimated 1s
+Ran all test suites matching /test\/plugin\/isLeapYear.test.js/i.

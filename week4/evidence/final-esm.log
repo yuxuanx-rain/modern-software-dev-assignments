@@ -1,0 +1,5 @@
+
+> dayjs@0.0.0-development babel
+> cross-env BABEL_ENV=build babel src --out-dir esm --copy-files && node build/esm
+
+Successfully compiled 184 files with Babel (2193ms).

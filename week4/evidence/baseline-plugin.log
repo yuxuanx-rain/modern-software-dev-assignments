@@ -1,0 +1,10 @@
+(node:70036) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+PASS test/plugin/isLeapYear.test.js
+  ✓ IsLeapYear (1ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.791s
+Ran all test suites matching /test\/plugin\/isLeapYear.test.js/i.

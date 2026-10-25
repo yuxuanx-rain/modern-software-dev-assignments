@@ -1,0 +1,34 @@
+{
+  "checked_date": "2026-10-25",
+  "checks": {
+    "configuration_copies_identical": true,
+    "published_trial_test_identical": true,
+    "baseline_missing_agent_config": true,
+    "only_intended_dayjs_files_changed": true,
+    "no_template_placeholders": true,
+    "three_required_parts_present": true,
+    "six_exploration_rows_present": true,
+    "reflection_answers_present": true,
+    "two_trial_rows_present": true,
+    "fork_link_present": true,
+    "concise_configuration": true,
+    "initial_configuration_retained": true,
+    "recorded_full_test_pass": true,
+    "recorded_failed_baseline_retained": true,
+    "all_local_writeup_links_resolve": true,
+    "fresh_six_commands_passed": true,
+    "fresh_full_suite_93_suites_797_tests": true,
+    "fresh_smoke_expected_output": true
+  },
+  "configuration_words": 415,
+  "dayjs_changed_paths": [
+    "AGENTS.md",
+    "test/plugin/isLeapYear.test.js"
+  ],
+  "dayjs_published_commit": "421ff708a9989e4f6a3ba2eaedfea44c9c19cd0f",
+  "file_sha256": {
+    "AGENTS.md": "0b7bb42cdc0486980d33372c840fdf64ffe7a9a94723d0a58bd2ddfb01937144",
+    "writeup.md": "b601b3e3e048913503b030e56aa8cc1373f818ab582a7bd08beddebb3b25fae9",
+    "evidence/task2.patch": "5cec2c6632a1b2c1ff2ff532fbea128f88c7871bdb5d6256d7b4a1228ca6ad72"
+  }
+}

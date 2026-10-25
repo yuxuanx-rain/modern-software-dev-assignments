@@ -1,0 +1,78 @@
+[
+  {
+    "check": "focused",
+    "command": [
+      "./node_modules/.bin/jest",
+      "test/plugin/isLeapYear.test.js",
+      "--runInBand",
+      "--coverage=false"
+    ],
+    "environment_overrides": {},
+    "exit_code": 0,
+    "started_utc": "2026-10-25T23:43:02.160414+00:00",
+    "checkout": "fresh clone of published yuxuanx-rain/dayjs dev"
+  },
+  {
+    "check": "lint",
+    "command": [
+      "npm",
+      "run",
+      "lint"
+    ],
+    "environment_overrides": {},
+    "exit_code": 0,
+    "started_utc": "2026-10-25T23:43:06.220362+00:00",
+    "checkout": "fresh clone of published yuxuanx-rain/dayjs dev"
+  },
+  {
+    "check": "full-tests",
+    "command": [
+      "npm",
+      "test"
+    ],
+    "environment_overrides": {
+      "TZ": "UTC"
+    },
+    "exit_code": 0,
+    "started_utc": "2026-10-25T23:43:12.887950+00:00",
+    "checkout": "fresh clone of published yuxuanx-rain/dayjs dev"
+  },
+  {
+    "check": "build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "environment_overrides": {
+      "NODE_OPTIONS": "--openssl-legacy-provider"
+    },
+    "exit_code": 0,
+    "started_utc": "2026-10-25T23:43:55.746676+00:00",
+    "checkout": "fresh clone of published yuxuanx-rain/dayjs dev"
+  },
+  {
+    "check": "esm",
+    "command": [
+      "npm",
+      "run",
+      "babel"
+    ],
+    "environment_overrides": {},
+    "exit_code": 0,
+    "started_utc": "2026-10-25T23:46:15.669937+00:00",
+    "checkout": "fresh clone of published yuxuanx-rain/dayjs dev"
+  },
+  {
+    "check": "smoke",
+    "command": [
+      "node",
+      "-e",
+      "const dayjs = require('./dayjs.min.js'); console.log(dayjs('2024-02-29').format('YYYY-MM-DD'))"
+    ],
+    "environment_overrides": {},
+    "exit_code": 0,
+    "started_utc": "2026-10-25T23:46:19.698375+00:00",
+    "checkout": "fresh clone of published yuxuanx-rain/dayjs dev"
+  }
+]
