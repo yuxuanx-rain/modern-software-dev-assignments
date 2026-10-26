@@ -28,7 +28,7 @@
   "dayjs_published_commit": "421ff708a9989e4f6a3ba2eaedfea44c9c19cd0f",
   "file_sha256": {
     "AGENTS.md": "0b7bb42cdc0486980d33372c840fdf64ffe7a9a94723d0a58bd2ddfb01937144",
-    "writeup.md": "b601b3e3e048913503b030e56aa8cc1373f818ab582a7bd08beddebb3b25fae9",
+    "writeup.md": "c3e7ef8e1348bf1e939dd65e2d1f66824ad2e4c731666b84fd9d1acd9a6d68f8",
     "evidence/task2.patch": "5cec2c6632a1b2c1ff2ff532fbea128f88c7871bdb5d6256d7b4a1228ca6ad72"
   }
 }
