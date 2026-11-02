@@ -1,0 +1,80 @@
+{
+  "audit_date": "2026-11-01",
+  "cli_version": "1.1.0",
+  "binary_sha256": "28fc8c2b3389fa8ab724c5f0ee00f32fb5dabf8bd2e089719f274685a0f24429",
+  "repo_scan": "clean default-branch depth-one upstream clones",
+  "execution": "interactive /readiness-report for Day.js; exec /readiness-report for yt-dlp and Caddy, resumed same sessions with auto medium after collection permission stops",
+  "limits": [
+    "no authenticated gh/glab",
+    "no Go runtime",
+    "no supported Python >=3.11 found by auditor",
+    "Day.js npm dependencies not installed",
+    "no runtime/package installs or full test suites",
+    "history restricted by depth-one clone",
+    "interactive QA passes for yt-dlp/Caddy used documentation fallback; no successful actual execution",
+    "eight course pillars are analyst regrouping with two supplemental groups; raw criterion scores unchanged",
+    "CLI overall-rate scoring differs from older article gated progression"
+  ],
+  "runs": [
+    {
+      "repo": "iamkun/dayjs",
+      "commit": "436bde0bcded312781cbe45dc2b0ef079a36d8e3",
+      "branch": "dev",
+      "session_id": "4374c6f6-a50b-40e8-bee9-119b20118401",
+      "models": [
+        {
+          "id": "gpt-6.1-sol",
+          "reasoning_effort": "high"
+        }
+      ],
+      "started_at": "2026-11-01T22:57:03.198Z",
+      "factory_report_id": "9112dd68-00ab-46d9-af83-2687b2bd7822",
+      "successful_storage": true,
+      "raw_criteria_count": 84,
+      "tracked_diff_empty": true,
+      "final_git_status": "",
+      "shallow_clone": true,
+      "last_timestamped_record_at": "2026-11-01T23:00:06.846Z"
+    },
+    {
+      "repo": "yt-dlp/yt-dlp",
+      "commit": "b77c9304e1c4220cca450c583491904daf8455af",
+      "branch": "master",
+      "session_id": "d44761e7-4ec1-40dc-84f1-53fffa5d10db",
+      "models": [
+        {
+          "id": "gpt-6.1-sol",
+          "reasoning_effort": "high"
+        }
+      ],
+      "started_at": "2026-11-01T22:57:19.132Z",
+      "factory_report_id": "df85b939-7ab7-4058-88b4-75457083f98e",
+      "successful_storage": true,
+      "raw_criteria_count": 84,
+      "tracked_diff_empty": true,
+      "final_git_status": "",
+      "shallow_clone": true,
+      "last_timestamped_record_at": "2026-11-01T23:01:34.582Z"
+    },
+    {
+      "repo": "caddyserver/caddy",
+      "commit": "1a870400e684156f240f8db6e225c980b4357a80",
+      "branch": "master",
+      "session_id": "9ad6e3c4-7b69-41aa-a964-1f26df3d967f",
+      "models": [
+        {
+          "id": "gpt-6.1-sol",
+          "reasoning_effort": "high"
+        }
+      ],
+      "started_at": "2026-11-01T22:57:21.221Z",
+      "factory_report_id": "c361a8e8-477b-41eb-b4f0-8f82b7e3aa1b",
+      "successful_storage": true,
+      "raw_criteria_count": 84,
+      "tracked_diff_empty": true,
+      "final_git_status": "",
+      "shallow_clone": true,
+      "last_timestamped_record_at": "2026-11-01T23:00:37.133Z"
+    }
+  ]
+}

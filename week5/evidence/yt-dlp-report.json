@@ -1,0 +1,429 @@
+{
+  "repoUrl": "https://github.com/yt-dlp/yt-dlp.git",
+  "report": {
+    "large_file_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No file-size/line-count hook, CI limit, LFS rule, or configured size/complexity platform check was found."
+    },
+    "tech_debt_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Ruff checks TODO formatting but explicitly ignores TD001-TD003, including issue links. No debt inventory, TODO scanner, or documented debt-tracking process was found."
+    },
+    "build_cmd_doc": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md COMPILE documents make, make yt-dlp, dependency installation, and python -m bundle.pyinstaller."
+    },
+    "deps_pinned": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Committed uv.lock pins resolved dependencies. bundle/requirements/*.txt also pins versions and hashes, and CI installs with --require-hashes."
+    },
+    "vcs_cli_tools": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Neither gh nor glab is installed; authenticated repository APIs and PR/CI history could not be checked."
+    },
+    "automated_pr_review": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: gh/glab is unavailable. Policy-enforcement comments in label-handler.yml are not generated code reviews."
+    },
+    "agentic_development": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No active agent configuration, agent workflow, or agent coauthorship was found in the available shallow history. .NO_AI/README.md and CONTRIBUTING.md explicitly prohibit AI contributions."
+    },
+    "fast_ci_feedback": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no authenticated gh/glab access to PR check start/completion timestamps. Workflow timeouts do not establish actual CI duration."
+    },
+    "build_performance_tracking": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no gh/glab timing access or deliberate build-performance measurement was found. Parallel build jobs and the nightly commit-hash cache alone do not establish performance tracking."
+    },
+    "deployment_frequency": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: release workflows exist, but gh/glab is unavailable to verify actual successful release/deployment frequency."
+    },
+    "single_command_setup": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "CONTRIBUTING.md documents installing Hatch, hatch run setup, and hatch shell; it also documents running the source directly with python -m yt_dlp on supported Python."
+    },
+    "feature_flag_infrastructure": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No rollout-oriented feature flag system was found. CLI/extractor configuration options are not evidence of deployment feature flags."
+    },
+    "release_notes_automation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "release.yml generates notes with devscripts/make_changelog.py and updates Changelog.md through devscripts/update_changelog.py."
+    },
+    "progressive_rollout": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this is a CLI/library repository, not infrastructure. Release channels are documented but are not scored as infrastructure canary rollouts."
+    },
+    "rollback_automation": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this is not an infrastructure repository. README documents client version downgrades, rather than infrastructure rollback automation."
+    },
+    "monorepo_tooling": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: one root application/package. bundle and devscripts support the same application's build and release lifecycle."
+    },
+    "version_drift_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: one build package/module. Dependency groups and platform requirement files are inputs to the same root project, not sibling build modules."
+    },
+    "release_automation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "release.yml builds and publishes GitHub/PyPI releases; release-master.yml triggers on relevant master pushes and release-nightly.yml is scheduled."
+    },
+    "dead_feature_flag_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: feature_flag_infrastructure does not pass; there is no feature flag system requiring stale-flag detection."
+    },
+    "agents_md": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No root AGENTS.md exists. The repository instead explicitly prohibits AI contributions in .NO_AI/README.md and CONTRIBUTING.md."
+    },
+    "readme": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Root README.md provides installation, supported Python versions, dependencies, usage, configuration, build instructions, and examples."
+    },
+    "automated_doc_generation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Makefile doc regenerates README CLI help, supported sites and issue templates. Release preparation runs make doc; manpages and completions are generated too."
+    },
+    "skills": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No repository-local .factory/skills, .skills, or .claude/skills SKILL.md files were found. Session-provided skills are not repository configuration."
+    },
+    "documentation_freshness": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "The prescribed local git history check lists README.md and CONTRIBUTING.md under commit b77c930 dated 2026-10-29, within 180 days. This checkout is shallow, limiting historical precision."
+    },
+    "service_flow_documented": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md documents external service dependencies, including SponsorBlock's API and endpoint, YouTube Innertube hosts, and extractor-specific API configuration."
+    },
+    "agents_md_validation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No AGENTS.md exists, and no automation validating or generating its setup/test commands was found. The prerequisite is not satisfied."
+    },
+    "devcontainer": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No .devcontainer/devcontainer.json exists. bundle/docker contains release-build containers, not a configured development container."
+    },
+    "env_template": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md documents environment variables and defaults, including XDG_CONFIG_HOME, XDG_CACHE_HOME, HOME and YTDLP_NO_PLUGINS; no mandatory secret env file is needed for basic CLI use."
+    },
+    "local_services_setup": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the CLI has no required locally hosted database, cache, or service stack. External websites are remote download sources, and tests can supply local HTTP fixtures."
+    },
+    "devcontainer_runnable": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the devcontainer CLI is not installed. No devcontainer configuration exists either."
+    },
+    "runbooks_documented": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No dedicated runbooks/playbooks or incident-response runbook pointers were found. General troubleshooting and contribution instructions do not establish an operations runbook."
+    },
+    "branch_protection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: gh/glab is unavailable, so administrator access and active rulesets/legacy branch protection could not be verified."
+    },
+    "secret_scanning": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no repository secret-scanner hook/workflow was found, and unavailable gh/glab prevents checking admin access and native secret-scanning status."
+    },
+    "codeowners": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No CODEOWNERS file was found at root, in .github, or elsewhere in the repository."
+    },
+    "automated_security_review": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".github/workflows/codeql.yml runs CodeQL analysis for Python, JavaScript/TypeScript and Actions on pushes, PRs and a schedule, publishing readable code-scanning findings."
+    },
+    "dependency_update_automation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Custom dlp-bot automation is evidenced by generated EJS dependency metadata in Makefile and recent dependency/action update PRs recorded in Changelog.md, including #17924, #17933 and #17925."
+    },
+    "gitignore_comprehensive": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": ".gitignore covers Python/build artifacts, cookies, .netrc, IDE and OS files, but does not exclude .env or .env.* secret files."
+    },
+    "privacy_compliance": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this local CLI/library does not operate a centralized end-user data collection or tracking service. Personal metadata handling is evaluated separately under pii_handling."
+    },
+    "secrets_management": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Release workflows reference GitHub Actions secrets for signing and publishing without embedding values. README also documents restricted .netrc permissions and external credential commands."
+    },
+    "min_release_age": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "pyproject.toml sets tool.uv.exclude-newer to 7 days, mirrored by uv.lock's P7D policy. Several explicit package exemptions exist, so the delay is not universal."
+    },
+    "issue_templates": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".github/ISSUE_TEMPLATE contains structured broken-site, site-request, site-feature, general bug, feature and question templates."
+    },
+    "issue_labeling_system": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Issue templates and label-handler.yml show type/site/triage labels, but no complete priority/type/area taxonomy was established; priority labels could not be verified locally."
+    },
+    "backlog_health": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: gh/glab is unavailable, so the required sample of open issue titles, labels, age and recent activity could not be checked."
+    },
+    "pr_templates": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": ".github/PULL_REQUEST_TEMPLATE.md includes description, issue context and contribution/type checklists, but no section recording testing actually performed."
+    },
+    "lint_config": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "pyproject.toml configures Ruff with Pyflakes, pycodestyle, import, naming and other rules. Quick Test CI runs ruff check."
+    },
+    "type_check": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No mypy, Pyright or equivalent Python static type-checker configuration or CI task was found. Type hints and Ruff linting alone do not satisfy this criterion."
+    },
+    "formatter": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "pyproject.toml configures autopep8 and Hatch formatting commands; CI runs autopep8 --diff and pre-commit applies formatting."
+    },
+    "pre_commit_hooks": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".pre-commit-config.yaml runs Ruff fixes and autopep8. A Hatch hook configuration is also checked in, with installation documented in CONTRIBUTING.md."
+    },
+    "strict_typing": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No strict Python static type-checker mode is configured; neither mypy strict nor an equivalent Pyright configuration was found."
+    },
+    "naming_consistency": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Ruff enforces N803/N804 argument naming rules, and CONTRIBUTING.md explicitly requires extractor class names ending in IE."
+    },
+    "cyclomatic_complexity": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No configured cyclomatic/cognitive complexity analyzer or threshold was found. Ruff does not enable C901 or Pylint complexity/refactor rules."
+    },
+    "dead_code_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Ruff's selected Pyflakes F rules detect unused imports and local variables in CI, with a narrow generated-template exception."
+    },
+    "duplicate_code_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No duplication detector, CPD/jscpd configuration, or duplication-reporting CI task was found."
+    },
+    "code_modularization": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "The large Python application has distinct extractor/networking/downloader/postprocessor packages, but no import-linter or architectural layer/boundary enforcement was found."
+    },
+    "n_plus_one_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no application-owned database or ORM is used. Reading browser cookie databases does not create an application query layer requiring N+1 detection."
+    },
+    "heavy_dependency_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this is a Python CLI/library, not a browser-bundled application. PyInstaller release packaging does not establish a frontend bundle-size budget requirement."
+    },
+    "unused_dependencies_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No deptry, pip-extra-reqs or equivalent unused-dependency check was found. Ruff's unused-import checks do not analyze declared package dependencies."
+    },
+    "unit_tests_exist": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "test/ contains many unit tests, including test_cache.py, test_aes.py, test_traversal.py and test_utils.py; test_cache.py was selected for bounded collection."
+    },
+    "integration_tests_exist": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "test_downloader_http.py exercises the real downloader against an in-process HTTP server. Network/proxy, subprocess CLI and extractor download integration tests also exist."
+    },
+    "unit_tests_runnable": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the required Python >=3.11 runtime is unavailable. Direct bounded collection, python -m pytest --collect-only -p no:cacheprovider test/test_cache.py, exited 4 at the explicit unsupported-Python import guard under Python 3.9.13. No tests ran."
+    },
+    "test_performance_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No pytest --durations setting, retained timing/JUnit reports, or test analytics integration was found. Default pytest elapsed summaries do not establish tracked test performance."
+    },
+    "flaky_test_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Core and Quick Test workflows configure --reruns 2 --reruns-delay 3.0. test/conftest.py and devscripts/run_tests.py also support explicit flaky-test exclusion."
+    },
+    "test_coverage_thresholds": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No enforced minimum coverage percentage exists. Hatch's run-cov command explicitly says Code coverage not implemented and exits 1."
+    },
+    "test_naming_conventions": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Existing files follow test_*.py, but pytest configuration does not explicitly set discovery naming patterns and no documented test-file naming rule was found."
+    },
+    "test_isolation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "The Hatch test environment configures pytest-randomly and pytest-xdist; pytest-randomly provides test randomization. Network tests also use per-test local server fixtures."
+    },
+    "interactive_qa_exists": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "CONTRIBUTING.md documents direct python -m yt_dlp execution; README specifies Python >=3.11, optional dependencies, and CLI interactions such as --list-impersonate-targets/--list-extractors. These offline paths need no login or local services."
+    },
+    "interactive_qa_runnable": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Documentation fallback used: the bounded offline CLI attempt exited 1 at the Python >=3.11 guard under Python 3.10.7. The documented supported-Python source launch and list command form a complete no-auth, no-service QA path; actual execution was not confirmed."
+    },
+    "api_schema_docs": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: yt-dlp consumes external APIs but does not serve an HTTP/GraphQL API. Recursive OpenAPI/Swagger/GraphQL schema searches found none."
+    },
+    "database_schema": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the CLI has no application-owned database schema or migrations. Browser cookie database readers operate on external application data."
+    },
+    "structured_logging": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "A custom _YDLLogger adapter exists inside general-purpose utils/_utils.py, but no dedicated logger module or configured logging-library dependency was found; CLI output is primarily plain text."
+    },
+    "distributed_tracing": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No application-wide trace/request ID propagation, OpenTelemetry integration, or equivalent distributed tracing configuration was found."
+    },
+    "metrics_collection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No configured application metrics exporter or telemetry backend was found. Download progress callbacks alone are not a metrics collection system."
+    },
+    "code_quality_metrics": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no coverage/complexity/maintainability metrics tracking was found, and gh/glab is unavailable to verify native code-scanning analyses or coverage bot reports. CodeQL configuration alone does not verify these metrics."
+    },
+    "error_tracking_contextualized": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Sentry, Bugsnag, Rollbar or equivalent contextualized production error-tracking integration was found."
+    },
+    "alerting_configured": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No PagerDuty/OpsGenie integration or custom operational alerting rules were found. CLI warnings and CI failure statuses are not configured operational alerting."
+    },
+    "deployment_observability": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No deploy-impact monitoring dashboard pointers, deployment annotations, or deploy notification integrations were found."
+    },
+    "health_checks": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the application is a CLI/library rather than a continuously deployed service requiring health endpoints or readiness/liveness probes."
+    },
+    "circuit_breakers": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "External-call resilience is implemented with RetryManager and retry sleep functions. README documents linear and exponential --retry-sleep configuration, including fragment:exp=1:20."
+    },
+    "profiling_instrumentation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Performance profiling is meaningful for this downloader, but no configured profiler, flamegraph workflow, continuous profiling or APM instrumentation was found."
+    },
+    "dast_scanning": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the application is not deployed as a web service. Local HTTP fixtures test the client, not a web service staging target for DAST."
+    },
+    "pii_handling": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README warns that info-json may contain personal information and documents default internal-metadata cleanup. It also documents protected credential files; Config.hide_login_info masks usernames/passwords in debug configuration output."
+    },
+    "log_scrubbing": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Config.hide_login_info in yt_dlp/utils/_utils.py replaces username/password arguments with PRIVATE, including --option=value forms, before configuration is logged."
+    },
+    "product_analytics_instrumentation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Mixpanel, Amplitude, PostHog, Heap, GA4 or equivalent product-usage analytics instrumentation was found."
+    },
+    "error_to_insight_pipeline": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No configured error-tracker-to-issue integration or automatic issue creation from operational errors was found. User issue templates and policy comments do not satisfy this criterion."
+    }
+  },
+  "commitHash": "b77c9304e1c4220cca450c583491904daf8455af",
+  "branch": "master",
+  "hasLocalChanges": false,
+  "hasNonRemoteCommits": false
+}

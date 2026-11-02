@@ -1,0 +1,16 @@
+{
+  "raw_reports_embedded": true,
+  "raw_payloads_preserved": true,
+  "original_reports_receipts_and_metadata_unchanged": true,
+  "details_balanced": true,
+  "no_template_placeholders": true,
+  "relative_links_resolve": true,
+  "common_criteria_sensitivity": true,
+  "symmetric_six_criterion_exclusions": true,
+  "common_51_criterion_sensitivity": true,
+  "sensitivity_table_matches_writeup": true,
+  "pooled_counts_correct": true,
+  "age_contradiction_removed": true,
+  "container_first_priority_removed": true,
+  "only_week5_changed": true
+}

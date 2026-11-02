@@ -1,0 +1,429 @@
+{
+  "repoUrl": "https://github.com/iamkun/dayjs.git",
+  "report": {
+    "large_file_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "package.json configures size-limit at 2.99 KB for dayjs.min.js; release.yml runs npm run build, which enforces this built-file size threshold. No source-file size guard was found."
+    },
+    "tech_debt_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No TODO/FIXME scanner, issue-link enforcement, technical-debt platform, or documented debt-tracking process found."
+    },
+    "build_cmd_doc": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "npm run build and npm run babel exist in package.json and release CI, but README.md and CONTRIBUTING.md do not document the repository build commands; AGENTS.md is absent."
+    },
+    "deps_pinned": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Committed package-lock.json (lockfileVersion 2) records resolved dependency versions; release CI uses npm clean-install."
+    },
+    "vcs_cli_tools": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "gh auth status exited 127 because gh is not installed. glab was also not found; authenticated VCS CLI access is unavailable."
+    },
+    "automated_pr_review": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no authenticated GitHub/GitLab CLI is available to inspect automated review comments."
+    },
+    "agentic_development": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No agent workflows, commands, skills, or agent configuration found. The available git history contains one human-authored commit and no agent co-authorship."
+    },
+    "fast_ci_feedback": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: authenticated GitHub/GitLab CLI access is unavailable, so PR check durations cannot be measured."
+    },
+    "build_performance_tracking": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no authenticated CLI or deliberate build-performance measurement found. CI caches npm downloads, not build outputs."
+    },
+    "deployment_frequency": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: authenticated GitHub/GitLab CLI access is unavailable to inspect release and deployment frequency."
+    },
+    "single_command_setup": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "README documents installing the published package, not setting up a fresh repository clone. No documented dependency-install/build/development sequence exists."
+    },
+    "feature_flag_infrastructure": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No feature-flag platform or custom rollout-toggle system found. Optional library plugins are not deployment feature flags."
+    },
+    "release_notes_automation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".releaserc configures @semantic-release/changelog and @semantic-release/git; release.yml installs these plugins and runs semantic-release."
+    },
+    "progressive_rollout": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this is an npm library, not an infrastructure/deployed-service repository."
+    },
+    "rollback_automation": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this is an npm library, not an infrastructure-based repository."
+    },
+    "monorepo_tooling": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: one root application and one package.json; plugins and locales are part of the same published library."
+    },
+    "version_drift_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the repository has one build package/module, so sibling-module dependency drift does not apply."
+    },
+    "release_automation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".github/workflows/release.yml builds and runs semantic-release on pushes to master after lint/tests. This automation targets master, while the evaluated default branch is dev."
+    },
+    "dead_feature_flag_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: feature_flag_infrastructure does not pass; there is no feature-flag system to inspect for stale flags."
+    },
+    "agents_md": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No AGENTS.md exists at the repository root or elsewhere within the repository."
+    },
+    "readme": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Root README.md describes Day.js, npm installation, date manipulation, locale loading, and plugin usage."
+    },
+    "automated_doc_generation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Configured semantic-release changelog generation automatically updates CHANGELOG.md and commits it through @semantic-release/git."
+    },
+    "skills": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No repository-local SKILL.md files or .factory/skills, .skills, or .claude/skills configuration found."
+    },
+    "documentation_freshness": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "git log --since='180 days ago' shows README.md and CONTRIBUTING.md in commit 436bde0 dated 2026-09-15, within 180 days of the audit."
+    },
+    "service_flow_documented": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No architecture/flow diagrams or service-dependency documentation found. README plugin usage is not an architecture or dependency-flow description."
+    },
+    "agents_md_validation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "AGENTS.md is absent, so its prerequisite fails; no agent-instruction validation automation exists."
+    },
+    "devcontainer": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No .devcontainer configuration found."
+    },
+    "env_template": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No .env.example or README/AGENTS environment-variable documentation found. The absence of required runtime secrets is not documented either."
+    },
+    "local_services_setup": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the standalone date/time library has no local database, cache, or other external-service runtime dependencies."
+    },
+    "devcontainer_runnable": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the devcontainer CLI is not installed; no devcontainer configuration exists."
+    },
+    "runbooks_documented": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No incident-response runbooks, playbooks, dedicated directory, or external runbook pointers found in repository documentation."
+    },
+    "branch_protection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: authenticated GitHub/GitLab CLI and repository-admin permission verification are unavailable."
+    },
+    "secret_scanning": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no local secret-scanning configuration found, and authenticated/admin API access is unavailable to verify native scanning."
+    },
+    "codeowners": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No root or .github/CODEOWNERS file found."
+    },
+    "automated_security_review": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no readable automated security-review/report workflow found, and authenticated/admin API access is unavailable. npm audit signatures verifies provenance, not a security assessment."
+    },
+    "dependency_update_automation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Dependabot, Renovate, or equivalent dependency-update configuration found; update PR activity cannot be verified without authenticated CLI access."
+    },
+    "gitignore_comprehensive": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": ".gitignore excludes node_modules, generated bundles, coverage, IDE files, and .DS_Store, but does not exclude .env or environment-secret variants."
+    },
+    "privacy_compliance": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the date/time library contains no end-user data collection or tracking infrastructure."
+    },
+    "secrets_management": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "GitHub Actions use secrets.CODECOV_TOKEN and secrets.GITHUB_TOKEN, with inherited workflow secrets rather than hardcoded credential values."
+    },
+    "min_release_age": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No minimumReleaseAge, stabilityDays, documented waiting period, or dependency-release-age gate found. Signature verification does not enforce release age."
+    },
+    "issue_templates": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".github/ISSUE_TEMPLATE/--bug-report.md requests a description, expected behavior, version, OS, browser, and time zone."
+    },
+    "issue_labeling_system": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No documented/configured priority, type, and area label taxonomy found. The bug template has an empty labels field; remote labels were not available."
+    },
+    "backlog_health": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no authenticated GitHub/GitLab CLI is available to inspect issue titles, labels, age, and recent activity."
+    },
+    "pr_templates": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No pull-request or merge-request template found."
+    },
+    "lint_config": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".eslintrc.json extends airbnb-base and configures Jest globals and project rules; npm run lint and CI invoke ESLint."
+    },
+    "type_check": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "JavaScript source has TypeScript declaration files and a typescript devDependency, but no tsconfig, checkJs, tsc command, or other configured type-checking task exists."
+    },
+    "formatter": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "prettier.config.js and the Prettier dependency are present; npm run prettier formats docs/**/*.md."
+    },
+    "pre_commit_hooks": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "package.json configures the pre-commit package to run the lint script before commits."
+    },
+    "strict_typing": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No strict TypeScript/JavaScript checking configuration exists. Declaration files alone do not enable strict checking."
+    },
+    "naming_consistency": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "The inherited eslint-config-airbnb-base naming rules, including camelcase, enforce conventions; the local ESLint configuration does not disable them."
+    },
+    "cyclomatic_complexity": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No enabled ESLint complexity threshold or other configured cyclomatic/cognitive complexity analyzer found."
+    },
+    "dead_code_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "ESLint extends airbnb-base, whose no-unused-vars rule detects unused local code; the project does not disable that rule."
+    },
+    "duplicate_code_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No jscpd, CPD, SonarQube, or equivalent duplicate-code detection configured."
+    },
+    "code_modularization": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this is a compact single-package library with three core JavaScript files and optional plugins, not an application with meaningful service/layer boundaries."
+    },
+    "n_plus_one_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the library has no database or ORM usage."
+    },
+    "heavy_dependency_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "size-limit enforces a 2.99 KB dayjs.min.js budget, and gzip-size reports compressed size; release CI invokes the build/size task."
+    },
+    "unused_dependencies_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No depcheck, knip, npm-check, or equivalent unused-dependency check found."
+    },
+    "unit_tests_exist": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "A bounded listing found 93 *.test.js files under test/, covering core behavior, locales, plugins, and regression cases."
+    },
+    "integration_tests_exist": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "test/browser.spec.js exercises the bundled global API through Karma/Sauce Labs; advancedFormat.test.js integrates core, locale, UTC, timezone, and week plugins."
+    },
+    "unit_tests_runnable": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Attempted npx --no-install jest --listTests with Execute timeout 40 seconds. It exited 1 because Jest/dependencies are not installed and listed no tests. Node v24.16.0 is available; nothing was installed and no tests ran."
+    },
+    "test_performance_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No explicit test-timing analytics, duration tracking, retained timing reports, or timing-report flags configured. CI only runs tests and uploads coverage."
+    },
+    "flaky_test_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no local retry/quarantine/flakiness tracking configuration found, and authenticated GitHub/GitLab CLI access is unavailable."
+    },
+    "test_coverage_thresholds": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "npm test invokes Jest with a global lines coverageThreshold of 100; CI runs npm test."
+    },
+    "test_naming_conventions": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "package.json Jest configuration explicitly matches test/(.*?/)?.*test.js$; CONTRIBUTING.md documents test/*.test.js."
+    },
+    "test_isolation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Configured Jest uses its default isolated per-file environments and parallel worker execution; scripts do not disable these with --runInBand. Sample plugin tests reset MockDate after each case."
+    },
+    "interactive_qa_exists": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "README provides package installation and API fragments, but no complete repository-local install/build/load/observe QA path. The demo lacks a documented launcher and some calls require unloaded plugins."
+    },
+    "interactive_qa_runnable": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Attempted a Node interaction using require('.') and date formatting. It exited 1 because package.json's main, dayjs.min.js, is absent. Build dependencies are uninstalled and no complete documented QA fallback exists."
+    },
+    "api_schema_docs": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this is a library without HTTP/GraphQL service APIs. Recursive bounded schema-pattern discovery found no API schema files."
+    },
+    "database_schema": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the date/time library does not use a database."
+    },
+    "structured_logging": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No structured logging library or dedicated logger module found. The devHelper plugin uses console.warn, not a structured logger."
+    },
+    "distributed_tracing": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No OpenTelemetry, request/trace ID propagation, or equivalent distributed tracing instrumentation found."
+    },
+    "metrics_collection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No application metrics or telemetry instrumentation configured."
+    },
+    "code_quality_metrics": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Jest collects coverage for src/**/*, npm test requests coverage, and CI conditionally uploads reports to Codecov using CODECOV_TOKEN."
+    },
+    "error_tracking_contextualized": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Sentry, Bugsnag, Rollbar, or equivalent contextual error-tracking integration found."
+    },
+    "alerting_configured": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No PagerDuty, OpsGenie, custom alert definitions, or notification rules found."
+    },
+    "deployment_observability": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No deployment-impact dashboard pointers, deployment notifications, or monitoring annotations found. CI/coverage badges are not deployment observability."
+    },
+    "health_checks": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the library is not a deployed service and exposes no health endpoint or probe."
+    },
+    "circuit_breakers": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the library performs no external-service calls requiring circuit breakers or resilience policies."
+    },
+    "profiling_instrumentation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No configured CPU/memory profiler, flame-graph tooling, continuous profiling, or development profiling scripts found."
+    },
+    "dast_scanning": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the library is not deployed as a web service; DAST against a running endpoint does not apply."
+    },
+    "pii_handling": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the library processes date/time values, not user accounts or collected personal-data records."
+    },
+    "log_scrubbing": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No logging redaction, sanitization, masking utilities, or log-scrubbing documentation found."
+    },
+    "product_analytics_instrumentation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Mixpanel, Amplitude, PostHog, Heap, GA4, or equivalent product analytics instrumentation found."
+    },
+    "error_to_insight_pipeline": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No error-tracker-to-issue integration, Sentry organization/project configuration, or error-triggered issue creation automation found."
+    }
+  },
+  "commitHash": "436bde0bcded312781cbe45dc2b0ef079a36d8e3",
+  "branch": "dev",
+  "hasLocalChanges": false,
+  "hasNonRemoteCommits": false
+}

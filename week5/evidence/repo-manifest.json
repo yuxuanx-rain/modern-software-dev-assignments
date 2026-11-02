@@ -1,0 +1,44 @@
+[
+  {
+    "repo": "iamkun/dayjs",
+    "url": "https://github.com/iamkun/dayjs",
+    "sha": "436bde0bcded312781cbe45dc2b0ef079a36d8e3",
+    "commit_date": "2026-09-15T19:35:23+08:00",
+    "created_at": "2018-04-10T09:26:44Z",
+    "archived": false,
+    "owner_type": "User",
+    "tracked_files": 380,
+    "primary_extension": ".js",
+    "primary_files": 286,
+    "primary_physical_lines": 18827,
+    "git_clean": true
+  },
+  {
+    "repo": "yt-dlp/yt-dlp",
+    "url": "https://github.com/yt-dlp/yt-dlp",
+    "sha": "b77c9304e1c4220cca450c583491904daf8455af",
+    "commit_date": "2026-10-29T20:36:17Z",
+    "created_at": "2020-10-26T04:22:55Z",
+    "archived": false,
+    "owner_type": "Organization",
+    "tracked_files": 1235,
+    "primary_extension": ".py",
+    "primary_files": 1124,
+    "primary_physical_lines": 247104,
+    "git_clean": true
+  },
+  {
+    "repo": "caddyserver/caddy",
+    "url": "https://github.com/caddyserver/caddy",
+    "sha": "1a870400e684156f240f8db6e225c980b4357a80",
+    "commit_date": "2026-11-01T16:59:21-05:00",
+    "created_at": "2015-01-13T19:45:03Z",
+    "archived": false,
+    "owner_type": "Organization",
+    "tracked_files": 745,
+    "primary_extension": ".go",
+    "primary_files": 402,
+    "primary_physical_lines": 131440,
+    "git_clean": true
+  }
+]

@@ -1,0 +1,433 @@
+{
+  "repoUrl": "https://github.com/caddyserver/caddy.git",
+  "report": {
+    "large_file_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No file-size/line-count hook, CI threshold, LFS configuration, or enabled equivalent linter was found."
+    },
+    "tech_debt_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "TODO/FIXME comments exist, but no scanner, issue-link enforcement, technical-debt platform, or documented debt tracking process was found."
+    },
+    "build_cmd_doc": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md documents Go 1.26+, cloning, and building in cmd/caddy; AGENTS.md also documents go build ./...."
+    },
+    "deps_pinned": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "The single go.mod specifies fixed dependency versions, with checksums committed in go.sum."
+    },
+    "vcs_cli_tools": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Both gh auth status and glab auth status returned command not found; no authenticated VCS CLI is available."
+    },
+    "automated_pr_review": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped because neither GitHub nor GitLab CLI is installed/authenticated; release-status comments do not establish automated code review."
+    },
+    "agentic_development": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No agent-invoking workflows, scripts, skills, or agent co-authorship were found. AGENTS.md and disclosure policies alone do not prove active agent development; history contains only one shallow-clone commit."
+    },
+    "fast_ci_feedback": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no authenticated VCS CLI is available to measure actual PR check start-to-completion durations."
+    },
+    "build_performance_tracking": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no authenticated VCS CLI or explicit build-performance metrics/analysis were found. Standard setup-go/action defaults alone do not establish deliberate performance tracking."
+    },
+    "deployment_frequency": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no authenticated VCS CLI is available to inspect release and deployment-run frequency."
+    },
+    "single_command_setup": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md provides a short clone/build sequence and a go run development launch example; AGENTS.md documents the self-starting integration harness."
+    },
+    "feature_flag_infrastructure": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No feature-flag platform or custom flag lifecycle/targeting system was found; optional server configuration is not feature-flag infrastructure."
+    },
+    "release_notes_automation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".goreleaser.yml generates a filtered changelog, and release-proposal.yml generates changes since the previous release."
+    },
+    "progressive_rollout": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this is server source and release tooling, not a deployment-infrastructure repository managing rollout environments."
+    },
+    "rollback_automation": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: this source/release repository does not manage deployed infrastructure environments; reload support is not release rollback automation."
+    },
+    "monorepo_tooling": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: one application and one Go build module; internal packages and Caddy runtime modules are not separate applications."
+    },
+    "version_drift_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: only one build module (root go.mod) exists, so there are no sibling build-module versions to compare."
+    },
+    "release_automation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Release proposal/approval workflows and tag-triggered GoReleaser automate builds, signing, packaging, and publishing; release_published.yml dispatches downstream packaging."
+    },
+    "dead_feature_flag_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped because feature_flag_infrastructure does not pass; no managed feature-flag system exists."
+    },
+    "agents_md": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Root AGENTS.md exceeds 100 characters and documents architecture, naming, build/test/lint commands, contribution rules, and module conventions."
+    },
+    "readme": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Root README.md describes purpose, requirements, source builds, installation, usage, and quick-start documentation."
+    },
+    "automated_doc_generation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".goreleaser.yml runs Caddy's manpage generator and packages generated manual pages during release builds."
+    },
+    "skills": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No repository-local {skill-name}/SKILL.md files or valid skills directories were found; session-provided skills are not repository evidence."
+    },
+    "documentation_freshness": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "The requested git-log check returns README.md and AGENTS.md at 2026-11-01, within 180 days. The clone is shallow, limiting historical attribution."
+    },
+    "service_flow_documented": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md documents external certificate providers (ZeroSSL/Let's Encrypt), while AGENTS.md describes HTTP/TLS/PKI modules, configuration flow, and the CertMagic dependency."
+    },
+    "agents_md_validation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No automation extracts, validates, regenerates, or link-checks AGENTS.md. CI independently running similar commands does not validate the document."
+    },
+    "devcontainer": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No .devcontainer/devcontainer.json or equivalent checked-in devcontainer configuration was found."
+    },
+    "env_template": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No .env.example exists, and README.md/AGENTS.md do not enumerate environment variables or explicitly document the required/optional environment contract."
+    },
+    "local_services_setup": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the local HTTP QA target requires no external database/service; optional ACME-server persistence uses embedded bbolt."
+    },
+    "devcontainer_runnable": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: the devcontainer CLI is unavailable; no devcontainer was built or run."
+    },
+    "runbooks_documented": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No operational incident-response runbook/playbook or explicit runbook pointer was found. General support and vulnerability-reporting links are not operational runbooks."
+    },
+    "branch_protection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: gh/glab are unavailable, so authenticated admin access and modern rulesets/legacy protection cannot be verified."
+    },
+    "secret_scanning": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".pre-commit-config.yaml configures the gitleaks hook. This supplies file-based secret-scanning evidence without native repository API access."
+    },
+    "codeowners": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No CODEOWNERS file was found at the root, .github, or elsewhere in the repository."
+    },
+    "automated_security_review": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "lint.yml runs govulncheck and dependency-review-action with comment-summary-in-pr: on-failure; scorecard.yml retains and uploads readable SARIF assessments."
+    },
+    "dependency_update_automation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".github/dependabot.yml configures monthly grouped Go-module and GitHub Actions dependency-update PRs; live PR activity could not be verified without gh."
+    },
+    "gitignore_comprehensive": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": ".gitignore covers Caddy binaries, release artifacts, vendor, IDE files, and .DS_Store, but only cmd/caddy/.env is ignored; root/nested .env secrets are not generally excluded."
+    },
+    "privacy_compliance": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "modules/logging/filters.go implements IP masking, hashing, and field deletion; credential headers are omitted by default, providing privacy-by-design data minimization."
+    },
+    "secrets_management": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "CI/release workflows use GitHub Actions secrets references for signing, publishing, and dispatch credentials rather than checked-in credential values."
+    },
+    "min_release_age": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Dependabot's monthly schedule does not enforce release age. No explicit minimum-age/cooldown delay or documented N-day waiting policy was found."
+    },
+    "issue_templates": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".github/ISSUE_TEMPLATE/ISSUE.yml provides required issue details and assistance-disclosure fields for actionable bugs/features."
+    },
+    "issue_labeling_system": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Only release-workflow status labels are evidenced locally; no consistent priority, type, and area label taxonomy is documented/configured, and gh is unavailable."
+    },
+    "backlog_health": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: no authenticated VCS CLI is available to inspect issue titles, labels, ages, and recent activity."
+    },
+    "pr_templates": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": ".github/pull_request_template.md exists but contains only assistance disclosure; it lacks description, testing-done, and context sections."
+    },
+    "lint_config": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".golangci.yml configures golangci-lint v2 with govet, staticcheck, gosec, dupl, unused, and other checks; lint.yml invokes it in CI."
+    },
+    "type_check": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Go is statically typed; documented and CI go build commands invoke compiler type checking. Local compilation was not attempted because Go is unavailable."
+    },
+    "formatter": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".golangci.yml enables gofmt, gofumpt, goimports, and gci; pre-commit configuration includes a formatter hook."
+    },
+    "pre_commit_hooks": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".pre-commit-config.yaml defines gitleaks, golangci-lint, formatting, shellcheck, whitespace, and EOF checks. Hook execution was not validated locally."
+    },
+    "strict_typing": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: Go has no distinct stricter type-checking mode beyond its normal compiler; compiler evidence is already scored under type_check."
+    },
+    "naming_consistency": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "AGENTS.md explicitly requires Go initialisms, short receiver names, lowercase error strings, and named doc comments."
+    },
+    "cyclomatic_complexity": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "The enabled golangci-lint analyzers do not include a cyclomatic/cognitive complexity threshold; no separate complexity-monitoring tool was found."
+    },
+    "dead_code_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".golangci.yml enables staticcheck and unused, which detect unused/dead code across application packages."
+    },
+    "duplicate_code_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": ".golangci.yml enables dupl; exclusions are scoped to selected files rather than disabling duplicate-code detection globally."
+    },
+    "code_modularization": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Root internal/ and modules/internal/ packages provide compiler-enforced Go import boundaries."
+    },
+    "n_plus_one_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "The optional ACME server uses embedded bbolt persistence, but no database-query/lookup amplification detector or analysis tooling was found."
+    },
+    "heavy_dependency_detection": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: Caddy is a Go server/CLI, not a bundled frontend; browser bundle-size analysis does not apply."
+    },
+    "unused_dependencies_detection": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "AGENTS.md recommends go mod tidy, and release preparation tidies a generated build module, but CI does not check unused dependencies in the root application module."
+    },
+    "unit_tests_exist": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Many *_test.go files exist at the root and in packages, including replacer_test.go, context_test.go, and modules/logging/filters_test.go."
+    },
+    "integration_tests_exist": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "caddytest/integration contains HTTP, TLS, reverse-proxy, authentication, and other end-to-end tests backed by caddytest.Tester."
+    },
+    "unit_tests_runnable": {
+      "numerator": null,
+      "denominator": 1,
+      "rationale": "Skipped: go version returned command not found (exit 127 in the toolchain probe). No test command or full suite was run; a missing language runtime is not a repository failure."
+    },
+    "test_performance_tracking": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "CI runs go test and generates coverage, but no deliberate suite-duration reporting/retention, test analytics, or performance trend tracking is configured."
+    },
+    "flaky_test_detection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "ci.yml's s390x-test job explicitly retries failed tests up to three times, satisfying the configured test-retry mechanism criterion; live run history is unavailable."
+    },
+    "test_coverage_thresholds": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "CI generates cover-profile.out, but no minimum coverage threshold, blocking coverage status, or coverage quality gate is configured."
+    },
+    "test_naming_conventions": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Tests follow Go's compiler/runner-enforced *_test.go and TestX naming conventions; AGENTS.md also documents testing patterns."
+    },
+    "test_isolation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "t.Parallel() is used in matcher, variable, and FastCGI tests; temporary directories and test cleanup also provide isolation."
+    },
+    "interactive_qa_exists": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "README.md supplies the Go prerequisite; AGENTS.md documents the integration command and a server-plus-HTTP-200 assertion. The checked-in harness starts Caddy on localhost and needs no login or external service."
+    },
+    "interactive_qa_runnable": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Documentation fallback: Go is unavailable, so no live run occurred. AGENTS.md and TestRespond define a complete local harness path; certificates are checked in, the server self-starts, and HTTP /version is asserted 200 without auth."
+    },
+    "api_schema_docs": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "Caddy exposes an HTTP admin API, but recursive discovery found no OpenAPI/Swagger specification or GraphQL schema. A configuration-documentation test fixture is not an API schema."
+    },
+    "database_schema": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "The ACME-server module opens a bbolt database through Smallstep; no repository-local data-model/schema definitions or migrations describe its persisted records."
+    },
+    "structured_logging": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "go.mod includes go.uber.org/zap; logging.go and modules/logging implement structured, module-scoped logging."
+    },
+    "distributed_tracing": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "modules/caddyhttp/tracing uses OpenTelemetry/otelhttp, extracts and injects trace context, and adds trace/span IDs to request logging."
+    },
+    "metrics_collection": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Prometheus metrics are implemented for admin requests, reload success, HTTP handlers, and other components, with metrics endpoints/modules."
+    },
+    "code_quality_metrics": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "ci.yml runs go test -coverprofile=cover-profile.out, configuring code-coverage measurement. Upload/analysis is commented out and no threshold is enforced."
+    },
+    "error_tracking_contextualized": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Sentry, Bugsnag, Rollbar, or equivalent contextual error-tracking integration was found; structured logs alone do not meet this criterion."
+    },
+    "alerting_configured": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No PagerDuty/OpsGenie integration, alert rules, or configured custom failure-notification pipeline was found."
+    },
+    "deployment_observability": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No deployment-impact dashboard pointers or deploy notification/monitoring annotations were found; instrumentation alone is insufficient."
+    },
+    "health_checks": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "modules/caddyhttp/reverseproxy/healthchecks.go implements active HTTP health probes and passive upstream health tracking, satisfying load-balancer health checks."
+    },
+    "circuit_breakers": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Reverse-proxy passive health checks track failures, suppress unhealthy upstreams, and recover after fail_duration; circuit-breaker hooks and retry behavior provide resilience."
+    },
+    "profiling_instrumentation": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "admin.go registers /debug/pprof/ CPU/heap profiling endpoints, trace, and expvar instrumentation."
+    },
+    "dast_scanning": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Custom live-endpoint security tests in reverseproxy/headers_test.go reject malicious hop-by-hop/Connection-nominated headers. Normal short/race CI runs these tests against httptest servers; no external DAST scanner is configured."
+    },
+    "pii_handling": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "Logging filters explicitly mask client IP addresses and hash/delete sensitive fields; HTTP logging omits credential headers by default."
+    },
+    "log_scrubbing": {
+      "numerator": 1,
+      "denominator": 1,
+      "rationale": "modules/logging/filters.go provides delete/hash/replace/IP-mask/query/cookie filters, and HTTP logging suppresses credentials by default."
+    },
+    "product_analytics_instrumentation": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No Mixpanel, Amplitude, PostHog, Heap, GA4, or equivalent product-usage analytics instrumentation was found."
+    },
+    "error_to_insight_pipeline": {
+      "numerator": 0,
+      "denominator": 1,
+      "rationale": "No error-tracker-to-issue integration, error-driven issue automation, or incident-to-backlog pipeline was found."
+    }
+  },
+  "commitHash": "1a870400e684156f240f8db6e225c980b4357a80",
+  "branch": "master",
+  "hasLocalChanges": false,
+  "hasNonRemoteCommits": false,
+  "modelUsed": {
+    "id": "gpt-6.1-sol",
+    "reasoningEffort": "high"
+  }
+}

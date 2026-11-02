@@ -1,0 +1,422 @@
+[
+  {
+    "id": "large_file_detection",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "tech_debt_tracking",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "build_cmd_doc",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "deps_pinned",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "vcs_cli_tools",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "automated_pr_review",
+    "level": 2,
+    "skippable": true
+  },
+  {
+    "id": "agentic_development",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "fast_ci_feedback",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "build_performance_tracking",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "deployment_frequency",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "single_command_setup",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "feature_flag_infrastructure",
+    "level": 4,
+    "skippable": false
+  },
+  {
+    "id": "release_notes_automation",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "progressive_rollout",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "rollback_automation",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "monorepo_tooling",
+    "level": 2,
+    "skippable": true
+  },
+  {
+    "id": "version_drift_detection",
+    "level": 3,
+    "skippable": true
+  },
+  {
+    "id": "release_automation",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "dead_feature_flag_detection",
+    "level": 3,
+    "skippable": true
+  },
+  {
+    "id": "agents_md",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "readme",
+    "level": 1,
+    "skippable": false
+  },
+  {
+    "id": "automated_doc_generation",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "skills",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "documentation_freshness",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "service_flow_documented",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "agents_md_validation",
+    "level": 4,
+    "skippable": false
+  },
+  {
+    "id": "devcontainer",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "env_template",
+    "level": 1,
+    "skippable": false
+  },
+  {
+    "id": "local_services_setup",
+    "level": 2,
+    "skippable": true
+  },
+  {
+    "id": "devcontainer_runnable",
+    "level": 3,
+    "skippable": true
+  },
+  {
+    "id": "runbooks_documented",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "branch_protection",
+    "level": 2,
+    "skippable": true
+  },
+  {
+    "id": "secret_scanning",
+    "level": 3,
+    "skippable": true
+  },
+  {
+    "id": "codeowners",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "automated_security_review",
+    "level": 2,
+    "skippable": true
+  },
+  {
+    "id": "dependency_update_automation",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "gitignore_comprehensive",
+    "level": 1,
+    "skippable": false
+  },
+  {
+    "id": "privacy_compliance",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "secrets_management",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "min_release_age",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "issue_templates",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "issue_labeling_system",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "backlog_health",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "pr_templates",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "lint_config",
+    "level": 1,
+    "skippable": false
+  },
+  {
+    "id": "type_check",
+    "level": 1,
+    "skippable": false
+  },
+  {
+    "id": "formatter",
+    "level": 1,
+    "skippable": false
+  },
+  {
+    "id": "pre_commit_hooks",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "strict_typing",
+    "level": 2,
+    "skippable": true
+  },
+  {
+    "id": "naming_consistency",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "cyclomatic_complexity",
+    "level": 5,
+    "skippable": false
+  },
+  {
+    "id": "dead_code_detection",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "duplicate_code_detection",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "code_modularization",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "n_plus_one_detection",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "heavy_dependency_detection",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "unused_dependencies_detection",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "unit_tests_exist",
+    "level": 1,
+    "skippable": false
+  },
+  {
+    "id": "integration_tests_exist",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "unit_tests_runnable",
+    "level": 2,
+    "skippable": true
+  },
+  {
+    "id": "test_performance_tracking",
+    "level": 4,
+    "skippable": false
+  },
+  {
+    "id": "flaky_test_detection",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "test_coverage_thresholds",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "test_naming_conventions",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "test_isolation",
+    "level": 4,
+    "skippable": false
+  },
+  {
+    "id": "interactive_qa_exists",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "interactive_qa_runnable",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "api_schema_docs",
+    "level": 3,
+    "skippable": true
+  },
+  {
+    "id": "database_schema",
+    "level": 2,
+    "skippable": true
+  },
+  {
+    "id": "structured_logging",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "distributed_tracing",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "metrics_collection",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "code_quality_metrics",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "error_tracking_contextualized",
+    "level": 2,
+    "skippable": false
+  },
+  {
+    "id": "alerting_configured",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "deployment_observability",
+    "level": 4,
+    "skippable": false
+  },
+  {
+    "id": "health_checks",
+    "level": 3,
+    "skippable": true
+  },
+  {
+    "id": "circuit_breakers",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "profiling_instrumentation",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "dast_scanning",
+    "level": 4,
+    "skippable": true
+  },
+  {
+    "id": "pii_handling",
+    "level": 3,
+    "skippable": true
+  },
+  {
+    "id": "log_scrubbing",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "product_analytics_instrumentation",
+    "level": 3,
+    "skippable": false
+  },
+  {
+    "id": "error_to_insight_pipeline",
+    "level": 5,
+    "skippable": false
+  }
+]
